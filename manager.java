@@ -101,7 +101,7 @@ public class manager implements ActionListener {
         PreparedStatement ps;
 
         try {
-            ps = con.prepareStatement("DELETE FROM Customer WHERE customer_id = ?");
+            ps = con.prepareStatement("DELETE FROM Customer WHERE customerID = ?");
             System.out.print("\nCustomer ID: ");
             cID = Integer.parseInt(in.readLine());
             ps.setInt(1, cID);
@@ -364,7 +364,7 @@ public class manager implements ActionListener {
         PreparedStatement ps;
 
         try {
-            ps =con.prepareStatement("INSERT INTO manages VALUES (?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO manages VALUES (?,?,?,?,?)");
 
             System.out.print("\nCustomer ID: ");
             cID = Integer.parseInt(in.readLine());
@@ -402,6 +402,132 @@ public class manager implements ActionListener {
                 System.out.println("Message: " + ex2.getMessage());
                 System.exit(-1);
             }
+        }
     }
-}
+
+    /* 
+    delete a Manage relation
+    */
+    private void deleteManage() {
+        int cID;
+        int eID;
+        PreparedStatement ps;
+
+        try {
+            ps = con.prepareStatement("DELETE FROM Manages WHERE customerID = ? AND employeeID = ?");
+            System.out.print("\nCustomer ID: ");
+            cID = Integer.parseInt(in.readLine());
+            ps.setInt(1, cID);
+
+            System.out.print("\nEmployee ID: ");
+            eID = Integer.parseInt(in.readLine());
+            ps.setInt(2, eID);
+
+            int rowCount = ps.executeUpdate();
+
+            if (rowCount == 0) {
+                System.out.println("\nManage with customer " + cID + " and employee " + eID + " does not exist!");
+            }
+
+            con.commit();
+            ps.close();
+        } catch (IOException e) {
+            System.out.println("IOException!");
+        } catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+
+            try {
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
+    /*
+    insert a customer service employee
+    */
+
+    private void insertCustomerService() {
+        int eID;
+        int compID;
+        String name;
+        String lang;
+        PreparedStatement ps;
+
+        try {
+            ps = con.prepareStatement("INSERT INTO CustomerService VALUES (?,?,?,?)");
+
+            System.out.print("\nEmployee ID: ");
+            eID = Integer.parseInt(in.readLine());
+            ps.setInt(1, eID);
+
+            System.out.print("\nCompany ID: ");
+            compID = Integer.parseInt(in.readLine());
+            ps.setInt(2, compID);
+
+            System.out.print("Name: ");
+            name = in.readLine();
+            ps.setString(3, name);
+
+            System.out.print("Language of Service: ");
+            lang = in.readLine();
+            ps.setString(4, lang);
+
+            ps.executeUpdate();
+
+            con.commit();
+
+            ps.close();
+        } catch (IOException e) {
+            System.out.println("IOException!");
+        } catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+
+            try {
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+
+    }
+
+    /*
+    delete a customer service
+    */
+    private void deleteCustomerService() {
+        int cID;
+        int eID;
+        PreparedStatement ps;
+
+        try {
+            ps = con.prepareStatement("DELETE FROM CustomerService WHERE employeeID = ?");
+
+            System.out.print("\nEmployee ID: ");
+            eID = Integer.parseInt(in.readLine());
+            ps.setInt(1, eID);
+
+            int rowCount = ps.executeUpdate();
+
+            if (rowCount == 0) {
+                System.out.println("\nCustomer Service " + eID + " does not exist!");
+            }
+
+            con.commit();
+            ps.close();
+        } catch (IOException e) {
+            System.out.println("IOException!");
+        } catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+
+            try {
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
 }
