@@ -5,7 +5,7 @@ address		CHAR(50) not null,
 email			EMAIL,
 phone#		INT not null
 methodOfPayment	CHAR(20),
-PRIMARY KEY (customerID)
+primary key (customerID)
 };
 
 create table Manages{
