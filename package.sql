@@ -75,7 +75,7 @@ receiverAddress	CHAR(50) not null,
 price			NUMBER not null,
 dateCreated		DATE not null,
 expectedArrival	DATE not null,	
-primary key (orderID, customerID, companyID, typename),
+primary key (orderID),
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE,
 foreign key (customerID) REFERENCES customer
