@@ -1,20 +1,20 @@
-drop table customer;
+drop table packageContained;
+drop table finishedOrders;
+drop table updateExistingOrders;
+drop table createOrder;
+drop table deliveryType;
 drop table manages;
 drop table customerService;
-drop table deliveryType;
-drop table deliveryCompany;
 drop table deliveryCompanyAddress;
-drop table createOrder;
-drop table updateExistingOrders;
-drop table finishedOrders;
-drop table packageContained;
+drop table deliveryCompany;
+drop table customer;
 
 create table customer(
 customerID		int,
 name			VARCHAR(30) not null,
 address		VARCHAR(50) not null,
 email			VARCHAR(20),
-phone		CHAR(12) not null,
+phone		       int,
 methodOfPayment	CHAR(20),
 primary key (customerID)
 );
@@ -51,7 +51,7 @@ endtime	DATE not null,
 instance	CHAR(50) not null,
 primary key (customerID, employeeID),
 foreign key (customerID) REFERENCES customer
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (employeeID) REFERENCES customerService
 ON DELETE CASCADE
 );
@@ -77,9 +77,9 @@ dateCreated		DATE not null,
 expectedArrival	DATE not null,	
 primary key (orderID, customerID, companyID, typename),
 foreign key (companyID) REFERENCES deliveryCompany
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (customerID) REFERENCES customer
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (typename) REFERENCES deliveryType
 ON DELETE CASCADE
 );
@@ -93,7 +93,7 @@ dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID),
 foreign key (orderID) REFERENCES createOrder
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
 );
