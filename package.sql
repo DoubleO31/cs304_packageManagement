@@ -27,9 +27,9 @@ primary key (companyID)
 
 create table deliveryCompanyAddress(
 companyID	int,
-branch 	int not null,
+branch 	int,
 caddress	CHAR(50) not null,
-primary key (companyID, branch)
+primary key (companyID, branch),
 foreign key (companyID) REFERENCES deliveryCompany
 );
 
@@ -97,7 +97,7 @@ status			VARCHAR(50),
 companyID		INT not null,
 dateupdated		DATE not null,
 instance		VARCHAR(50),
-primary key (orderID)
+primary key (orderID),
 foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
