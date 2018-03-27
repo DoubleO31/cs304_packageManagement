@@ -261,3 +261,5 @@ values(101033209248, 77653, 'Fragile', 3);
 
 insert into packageContained
 values(101156437829, 34351, 'Personal', 1);
+
+commit work;
