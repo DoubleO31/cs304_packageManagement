@@ -14,7 +14,7 @@ customerID		int,
 name			VARCHAR(30) not null,
 address		VARCHAR(50) not null,
 email			VARCHAR(20),
-phone		CHAR(12) not null
+phone		CHAR(12) not null,
 methodOfPayment	CHAR(20),
 primary key (customerID)
 );
@@ -26,11 +26,11 @@ starttime	DATE not null,
 endtime	DATE not null,
 instance	CHAR(50) not null,
 primary key (customerID, employeeID),
-foreign key (customerID) REFERENCES Customer
-ON DELETE 
-ON UPDATE CASCADE
-foreign key (employeeID) REFERENCES CustomerService
-ON DELETE 
+foreign key (customerID) REFERENCES customer,
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+foreign key (employeeID) REFERENCES customerService
+ON DELETE CASCADE
 ON UPDATE CASCADE
 );
 
@@ -39,9 +39,9 @@ employeeID 	int,
 companyID	int not null,
 name		CHAR(30) not null,
 language	CHAR(30) not null,
-primary key (employeeID)
-foreign key (companyID) REFERENCES DeliveryCompany
-ON DELETE
+primary key (employeeID),
+foreign key (companyID) REFERENCES deliveryCompany
+ON DELETE CASCADE
 ON UPDATE CASCADE
 );
 
@@ -49,7 +49,7 @@ create table deliveryType(
 typename	CHAR(30),
 rate		DOUBLE not null,
 deliveryTime	CHAR(30) not null,
-foreign key (typename)
+primary key (typename) 
 );
 
 create table deliveryCompany(
@@ -67,7 +67,7 @@ foreign key (companyID) REFERENCES DeliveryCompany
 );
 
 create table createOrder(
-orderID		int
+orderID		int,
 customerID		int,
 companyID		int not null,
 typename		CHAR(30) not null,
@@ -78,7 +78,7 @@ receiverAddress	CHAR(50) not null,
 price			DOUBLE not null,
 dateCreated		DATE not null,
 expectedArrival	DATE not null,	
-primary key (orderID, customerID, companyID, typename)
+primary key (orderID, customerID, companyID, typename),
 foreign key (companyID) REFERENCES DeliveryCompany
 ON DELETE
 ON UPDATE CASCADE
@@ -100,7 +100,7 @@ instance		VARCHAR(50),
 primary key (orderID)
 foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
-ON UPDATE CASCADE
+ON UPDATE CASCADE,
 foreign key (companyID) REFERENCES DeliveryCompany
 ON DELETE CASCADE
 ON UPDATE CASCADE
@@ -110,7 +110,7 @@ create table finishedOrders(
 orderID	 	int,
 finishedDate DATE not null,
 status CHAR(50),
-primary key (orderID)
+primary key (orderID),
 foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
@@ -118,10 +118,10 @@ ON UPDATE CASCADE
 
 create table packageContained(
 orderID	int,
-package#	int,
+packageNo	int,
 description VARCHAR(100),
 weight DOUBLE not null,
-primary key (orderID, package#)
+primary key (orderID, packageNo),
 foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
