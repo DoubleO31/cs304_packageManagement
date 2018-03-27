@@ -19,19 +19,18 @@ methodOfPayment	CHAR(20),
 primary key (customerID)
 );
 
-create table manages(
-customerID	int,
-employeeID 	int,
-starttime	DATE not null,
-endtime	DATE not null,
-instance	CHAR(50) not null,
-primary key (customerID, employeeID),
-foreign key (customerID) REFERENCES customer,
-ON DELETE CASCADE
-ON UPDATE CASCADE,
-foreign key (employeeID) REFERENCES customerService
-ON DELETE CASCADE
-ON UPDATE CASCADE
+create table deliveryCompany(
+companyID	int,
+cname		CHAR(30) not null,
+foreign key (companyID)
+);
+
+create table deliveryCompanyAddress(
+companyID	int,
+branch 	int not null,
+caddress	CHAR(50) not null,
+primary key (companyID, branch)
+foreign key (companyID) REFERENCES deliveryCompany
 );
 
 create table customerService(
@@ -45,25 +44,26 @@ ON DELETE CASCADE
 ON UPDATE CASCADE
 );
 
+create table manages(
+customerID	int,
+employeeID 	int,
+starttime	DATE not null,
+endtime	DATE not null,
+instance	CHAR(50) not null,
+primary key (customerID, employeeID),
+foreign key (customerID) REFERENCES customer
+ON DELETE CASCADE
+ON UPDATE CASCADE
+foreign key (employeeID) REFERENCES customerService
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
 create table deliveryType(
 typename	CHAR(30),
 rate		NUMBER not null,
 deliveryTime	CHAR(30) not null,
 primary key (typename) 
-);
-
-create table deliveryCompany(
-companyID	int,
-cname		CHAR(30) not null,
-foreign key (companyID)
-);
-
-create table deliveryCompanyAddress(
-companyID	int,
-branch 	int not null,
-caddress	CHAR(50) not null,
-primary key (companyID, branch)
-foreign key (companyID) REFERENCES deliveryCompany
 );
 
 create table createOrder(
