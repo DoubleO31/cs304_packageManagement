@@ -9,7 +9,7 @@ drop table updateExistingOrders;
 drop table finishedOrders;
 drop table packageContained;
 
-create table customer{
+create table customer(
 customerID		int,
 name			VARCHAR(30) not null,
 address		VARCHAR(50) not null,
@@ -17,9 +17,9 @@ email			VARCHAR(20),
 phone#		CHAR(12) not null
 methodOfPayment	CHAR(20),
 primary key (customerID)
-};
+);
 
-create table manages{
+create table manages(
 customerID	int,
 employeeID 	int,
 starttime	DATE not null,
@@ -32,9 +32,9 @@ ON UPDATE CASCADE
 foreign key (employeeID) REFERENCES CustomerService
 ON DELETE 
 ON UPDATE CASCADE
-};
+);
 
-create table customerService{
+create table customerService(
 employeeID 	int,
 companyID	int not null,
 name		CHAR(30) not null,
@@ -43,30 +43,30 @@ primary key (employeeID)
 foreign key (companyID) REFERENCES DeliveryCompany
 ON DELETE
 ON UPDATE CASCADE
-};
+);
 
-create table deliveryType{
+create table deliveryType(
 typename	CHAR(30),
 rate		DOUBLE not null,
 deliveryTime	CHAR(30) not null,
 foreign key (typename)
-};
+);
 
-create table deliveryCompany{
+create table deliveryCompany(
 companyID	int,
 cname		CHAR(30) not null,
 foreign key (companyID)
-};
+);
 
-create table deliveryCompanyAddress{
+create table deliveryCompanyAddress(
 companyID	int,
 branch#	int not null,
 caddress	CHAR(50) not null,
 primary key (companyID, branch#)
 foreign key (companyID) REFERENCES DeliveryCompany
-};
+);
 
-create table createOrder{
+create table createOrder(
 orderID		int
 customerID		int,
 companyID		int not null,
@@ -88,9 +88,9 @@ ON UPDATE CASCADE
 foreign key (typename) REFERENCES DeliveryType
 ON DELETE
 ON UPDATE CASCADE
-};
+);
 
-create table updateExistingOrders{
+create table updateExistingOrders(
 orderID	 	int,
 currentLocation	VARCHAR(50) not null,
 status			VARCHAR(50),
@@ -104,9 +104,9 @@ ON UPDATE CASCADE
 foreign key (companyID) REFERENCES DeliveryCompany
 ON DELETE CASCADE
 ON UPDATE CASCADE
-};
+);
 
-create table finishedOrders{
+create table finishedOrders(
 orderID	 	int,
 finishedDate DATE not null,
 status CHAR(50),
@@ -114,9 +114,9 @@ primary key (orderID)
 foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
-};
+);
 
-create table packageContained{
+create table packageContained(
 orderID	int,
 package#	int,
 description VARCHAR(100),
@@ -125,7 +125,7 @@ primary key (orderID, package#)
 foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
-};
+);
 
 insert into customer
 values(21367537, 'John Smith', '150 W 15th Ave', 'askhs@gmail.com', '6045657788', 'Cash');
