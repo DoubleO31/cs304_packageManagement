@@ -239,7 +239,7 @@ insert into updateExistingOrders
 values(103024324887, 'Richmond', 'Clearing Custom', 94237, TO_DATE('17-FEB-2018','DD-MM-YYYY'), 'custom clear');
 
 insert into updateExistingOrders
-values(100056478920, 'Vancouver', 'Clearing Custom', 34786, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'package loss');
+values(102064585959, 'Whiterock', 'Clearing Custom', 34786, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'package loss');
 
 insert into finishedOrders
 values(101033209248, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
