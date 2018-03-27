@@ -14,7 +14,7 @@ customerID		int,
 name			VARCHAR(30) not null,
 address		VARCHAR(50) not null,
 email			VARCHAR(20),
-phone#		CHAR(12) not null
+phone		CHAR(12) not null
 methodOfPayment	CHAR(20),
 primary key (customerID)
 );
