@@ -60,9 +60,9 @@ foreign key (companyID)
 
 create table deliveryCompanyAddress(
 companyID	int,
-branch#	int not null,
+branch 	int not null,
 caddress	CHAR(50) not null,
-primary key (companyID, branch#)
+primary key (companyID, branch)
 foreign key (companyID) REFERENCES DeliveryCompany
 );
 
