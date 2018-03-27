@@ -3,6 +3,8 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class MainGUI {
@@ -24,6 +26,27 @@ public class MainGUI {
     private JLabel GroupL;
     private JTable table1;
 
+
+    public MainGUI() {
+        AddB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomerAddGUI.main(null);
+            }
+        });
+        UpdateB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomerUpdateGUI.main(null);
+            }
+        });
+        View.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Select2GUI.main(null);
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame jf = new JFrame();
