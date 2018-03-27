@@ -68,10 +68,10 @@ orderID		int,
 customerID		int,
 companyID		int not null,
 typename		CHAR(30) not null,
-senderName		CHAR(30) not null,
-senderAddress	CHAR(50) not null,
-receiverName		CHAR(30) not null,
-receiverAddress	CHAR(50) not null,
+senderName		VARCHAR(30) not null,
+senderAddress	VARCHAR(50) not null,
+receiverName		VARCHAR(30) not null,
+receiverAddress	VARCHAR(50) not null,
 price			NUMBER not null,
 dateCreated		DATE not null,
 expectedArrival	DATE not null,	
@@ -132,56 +132,6 @@ values(45221778, 'Anna Roger', '955 Thurlow St', 'sdadd@gmail.com', '6047558945'
 insert into customer
 values(77654321, 'David Johonson', '1855 Nelson St', 'fedd@gmail.com', '7786554890', 'Credit');
 
-insert into manages
-values(21367537, 545782, TO_DATE('15-FEB-2017 12:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('15-FEB-2017 12:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
-
-insert into manages
-values(21367537, 765829, TO_DATE('21-FEB-2017 13:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('21-FEB-2017 13:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
-
-insert into manages
-values(57384360, 563742, TO_DATE('12-MAR-2017 14:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('12-MAR-2017 14:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
-
-insert into manages
-values(34348957, 897643, TO_DATE('10-FEB-2018 15:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('10-FEB-2018 15:25','DD-MM-YYYY HH24:MI'), 'Status not updated');
-       
-insert into manages
-values(77654321, 765829, TO_DATE('01-MAR-2018 16:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('01-MAR-2018 16:25','DD-MM-YYYY HH24:MI'), 'Account stolen');
-       
-insert into customerService
-values(545782, 94237, 'Michale Wagner', 'English');
-
-insert into customerService
-values(765829, 65789, 'Luna Fuller', 'English');
-
-insert into customerService
-values(563742, 34786, 'Thomas Fairchild', 'Korean');
-
-insert into customerService
-values(897643, 98765, 'Liu Lin', 'Chinese');
-
-insert into customerService
-values(670876, 34322, 'Lucy Cavendish', 'English');
-
-insert into deliveryType
-values('Regular', 2.99, 'One to three weeks');
-
-insert into deliveryType
-values('Fast', 6.99, 'Within one week');
-
-insert into deliveryType
-values('Express', 10.99, 'Two business day');
-
-insert into deliveryType
-values('Internation Economic', 7.99, 'Up to two months');
-
-insert into deliveryType
-values('Internation Express', 16.99, 'Within one week');
-
 insert into deliveryCompany
 values(94237, 'Canada Post');
 
@@ -211,6 +161,56 @@ values(98765, 121, '1186 Foster Ave');
 
 insert into deliveryCompanyAddress
 values(34322, 335, '228 Austin Ave');
+
+insert into customerService
+values(545782, 94237, 'Michale Wagner', 'English');
+
+insert into customerService
+values(765829, 65789, 'Luna Fuller', 'English');
+
+insert into customerService
+values(563742, 34786, 'Thomas Fairchild', 'Korean');
+
+insert into customerService
+values(897643, 98765, 'Liu Lin', 'Chinese');
+
+insert into customerService
+values(670876, 34322, 'Lucy Cavendish', 'English');
+
+insert into manages
+values(21367537, 545782, TO_DATE('15-FEB-2017 12:21','DD-MM-YYYY HH24:MI'), 
+       TO_DATE('15-FEB-2017 12:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
+
+insert into manages
+values(21367537, 765829, TO_DATE('21-FEB-2017 13:21','DD-MM-YYYY HH24:MI'), 
+       TO_DATE('21-FEB-2017 13:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
+
+insert into manages
+values(57384360, 563742, TO_DATE('12-MAR-2017 14:21','DD-MM-YYYY HH24:MI'), 
+       TO_DATE('12-MAR-2017 14:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
+
+insert into manages
+values(34348957, 897643, TO_DATE('10-FEB-2018 15:21','DD-MM-YYYY HH24:MI'), 
+       TO_DATE('10-FEB-2018 15:25','DD-MM-YYYY HH24:MI'), 'Status not updated');
+       
+insert into manages
+values(77654321, 765829, TO_DATE('01-MAR-2018 16:21','DD-MM-YYYY HH24:MI'), 
+       TO_DATE('01-MAR-2018 16:25','DD-MM-YYYY HH24:MI'), 'Account stolen');
+       
+insert into deliveryType
+values('Regular', 2.99, 'One to three weeks');
+
+insert into deliveryType
+values('Fast', 6.99, 'Within one week');
+
+insert into deliveryType
+values('Express', 10.99, 'Two business day');
+
+insert into deliveryType
+values('Internation Economic', 7.99, 'Up to two months');
+
+insert into deliveryType
+values('Internation Express', 16.99, 'Within one week');
 
 insert into createOrder
 values(100056478920,21367537,94237, 'Regular', 'John Smith', '150 W 15th Ave', '830 10 Ave SW, Calgary',
