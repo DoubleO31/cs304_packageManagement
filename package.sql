@@ -1,4 +1,15 @@
-create table Customer{
+drop table customer;
+drop table manages;
+drop table customerService;
+drop table deliveryType;
+drop table deliveryCompany;
+drop table deliveryCompanyAddress;
+drop table createOrder;
+drop table updateExistingOrders;
+drop table finishedOrders;
+drop table packageContained;
+
+create table customer{
 customerID		CHAR(30),
 name			CHAR(30) not null,
 address		CHAR(50) not null,
@@ -8,7 +19,7 @@ methodOfPayment	CHAR(20),
 primary key (customerID)
 };
 
-create table Manages{
+create table manages{
 customerID	CHAR(30),
 employeeID 	CHAR(30),
 starttime	CHAR(30) not null,
@@ -23,7 +34,7 @@ ON DELETE
 ON UPDATE CASCADE
 };
 
-create table CustomerService{
+create table customerService{
 employeeID 	CHAR(30),
 companyID	CHAR(30) not null,
 name		CHAR(30) not null,
@@ -34,20 +45,20 @@ ON DELETE
 ON UPDATE CASCADE
 };
 
-create table DeliveryType{
+create table deliveryType{
 typename	CHAR(30),
 rate		DOUBLE not null,
 deliveryTime	CHAR(30) not null,
 foreign key (typename)
 };
 
-create table DeliveryCompany{
+create table deliveryCompany{
 companyID	CHAR(30),
 cname		CHAR(30) not null,
 foreign key (companyID)
 };
 
-create table DeliveryCompanyAddress{
+create table deliveryCompanyAddress{
 companyID	CHAR(30),
 branch#	INT not null,
 caddress	CHAR(50) not null,
@@ -55,7 +66,7 @@ primary key (companyID, branch#)
 foreign key (companyID) REFERENCES DeliveryCompany
 };
 
-create table CreateOrder{
+create table createOrder{
 orderID		INT
 customerID		CHAR(30),
 companyID		CHAR(30) not null,
@@ -79,7 +90,7 @@ ON DELETE
 ON UPDATE CASCADE
 };
 
-create table UpdateExistingOrders{
+create table updateExistingOrders{
 orderID	 	INT,
 currentLocation	CHAR(50) not null,
 status			CHAR(50),
@@ -95,7 +106,7 @@ ON DELETE CASCADE
 ON UPDATE CASCADE
 };
 
-create table FinishedOrders{
+create table finishedOrders{
 orderID	 	INT,
 finishedDate DATE not null,
 status CHAR(50),
@@ -105,13 +116,13 @@ ON DELETE CASCADE
 ON UPDATE CASCADE
 };
 
-create table PackageContained{
+create table packageContained{
 orderID	INT,
 package#	INT,
 description CHAR(100),
 weight DOUBLE not null,
-PRIMARY KEY (orderID, package#)
-FOREIGN KEY (orderID) REFERENCES CreateOrder
+primary key (orderID, package#)
+foreign key (orderID) REFERENCES CreateOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
 };
