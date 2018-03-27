@@ -47,7 +47,7 @@ ON UPDATE CASCADE
 
 create table deliveryType(
 typename	CHAR(30),
-rate		DOUBLE not null,
+rate		NUMBER not null,
 deliveryTime	CHAR(30) not null,
 primary key (typename) 
 );
@@ -63,7 +63,7 @@ companyID	int,
 branch 	int not null,
 caddress	CHAR(50) not null,
 primary key (companyID, branch)
-foreign key (companyID) REFERENCES DeliveryCompany
+foreign key (companyID) REFERENCES deliveryCompany
 );
 
 create table createOrder(
@@ -75,18 +75,18 @@ senderName		CHAR(30) not null,
 senderAddress	CHAR(50) not null,
 receiverName		CHAR(30) not null,
 receiverAddress	CHAR(50) not null,
-price			DOUBLE not null,
+price			NUMBER not null,
 dateCreated		DATE not null,
 expectedArrival	DATE not null,	
 primary key (orderID, customerID, companyID, typename),
-foreign key (companyID) REFERENCES DeliveryCompany
-ON DELETE
+foreign key (companyID) REFERENCES deliveryCompany
+ON DELETE CASCADE
 ON UPDATE CASCADE
-foreign key (customerID) REFERENCES Customer
-ON DELETE
+foreign key (customerID) REFERENCES customer
+ON DELETE CASCADE
 ON UPDATE CASCADE
-foreign key (typename) REFERENCES DeliveryType
-ON DELETE
+foreign key (typename) REFERENCES deliveryType
+ON DELETE CASCADE
 ON UPDATE CASCADE
 );
 
@@ -98,10 +98,10 @@ companyID		INT not null,
 dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID)
-foreign key (orderID) REFERENCES CreateOrder
+foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
-ON UPDATE CASCADE,
-foreign key (companyID) REFERENCES DeliveryCompany
+ON UPDATE CASCADE
+foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
 ON UPDATE CASCADE
 );
@@ -111,7 +111,7 @@ orderID	 	int,
 finishedDate DATE not null,
 status CHAR(50),
 primary key (orderID),
-foreign key (orderID) REFERENCES CreateOrder
+foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
 );
@@ -120,9 +120,9 @@ create table packageContained(
 orderID	int,
 packageNo	int,
 description VARCHAR(100),
-weight DOUBLE not null,
+weight NUMBER not null,
 primary key (orderID, packageNo),
-foreign key (orderID) REFERENCES CreateOrder
+foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
 ON UPDATE CASCADE
 );
