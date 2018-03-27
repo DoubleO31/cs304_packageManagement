@@ -1,13 +1,13 @@
-drop table customer;
+drop table packageContained;
+drop table finishedOrders;
+drop table updateExistingOrders;
+drop table createOrder;
+drop table deliveryType;
 drop table manages;
 drop table customerService;
-drop table deliveryType;
-drop table deliveryCompany;
 drop table deliveryCompanyAddress;
-drop table createOrder;
-drop table updateExistingOrders;
-drop table finishedOrders;
-drop table packageContained;
+drop table deliveryCompany;
+drop table customer;
 
 create table customer(
 customerID		int,
