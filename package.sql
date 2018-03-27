@@ -22,7 +22,7 @@ primary key (customerID)
 create table deliveryCompany(
 companyID	int,
 cname		CHAR(30) not null,
-foreign key (companyID)
+primary key (companyID)
 );
 
 create table deliveryCompanyAddress(
