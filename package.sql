@@ -51,7 +51,7 @@ endtime	DATE not null,
 instance	CHAR(50) not null,
 primary key (customerID, employeeID),
 foreign key (customerID) REFERENCES customer
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (employeeID) REFERENCES customerService
 ON DELETE CASCADE
 );
@@ -77,9 +77,9 @@ dateCreated		DATE not null,
 expectedArrival	DATE not null,	
 primary key (orderID, customerID, companyID, typename),
 foreign key (companyID) REFERENCES deliveryCompany
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (customerID) REFERENCES customer
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (typename) REFERENCES deliveryType
 ON DELETE CASCADE
 );
@@ -93,7 +93,7 @@ dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID),
 foreign key (orderID) REFERENCES createOrder
-ON DELETE CASCADE
+ON DELETE CASCADE,
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
 );
