@@ -41,7 +41,6 @@ language	CHAR(30) not null,
 primary key (employeeID),
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 create table manages(
@@ -53,10 +52,8 @@ instance	CHAR(50) not null,
 primary key (customerID, employeeID),
 foreign key (customerID) REFERENCES customer
 ON DELETE CASCADE
-ON UPDATE CASCADE
 foreign key (employeeID) REFERENCES customerService
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 create table deliveryType(
@@ -81,13 +78,10 @@ expectedArrival	DATE not null,
 primary key (orderID, customerID, companyID, typename),
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
-ON UPDATE CASCADE
 foreign key (customerID) REFERENCES customer
 ON DELETE CASCADE
-ON UPDATE CASCADE
 foreign key (typename) REFERENCES deliveryType
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 create table updateExistingOrders(
@@ -100,10 +94,8 @@ instance		VARCHAR(50),
 primary key (orderID),
 foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
-ON UPDATE CASCADE
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 create table finishedOrders(
@@ -113,7 +105,6 @@ status CHAR(50),
 primary key (orderID),
 foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 create table packageContained(
@@ -124,7 +115,6 @@ weight NUMBER not null,
 primary key (orderID, packageNo),
 foreign key (orderID) REFERENCES createOrder
 ON DELETE CASCADE
-ON UPDATE CASCADE
 );
 
 insert into customer
