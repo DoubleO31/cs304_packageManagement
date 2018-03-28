@@ -1,20 +1,19 @@
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainGUI {
     private JPanel panel1;
     private JPanel NorthP;
     private JLabel SearchL;
-    private JTextField textField1;
+    private JTextField SearchtextField;
     private JButton SearchB;
     private JButton AddB;
     private JButton UpdateB;
@@ -55,12 +54,27 @@ public class MainGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    List<Order> orderslist;
 
-                    OrderTableModel model = new OrderTableModel(MainGUI.this.temp.getAllOrders());
+                    String oId = SearchtextField.getText();
+
+                    if (oId != null && oId.trim().length() > 0) {
+
+                        orderslist = MainGUI.this.temp.selectOrder(oId.trim());
+
+
+                    } else {
+
+                        orderslist = MainGUI.this.temp.getAllOrders();
+                    }
+                    OrderTableModel model = new OrderTableModel(orderslist);
+
 
                     table1.setModel(model);
 
+
                 } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
                     System.out.println("Message:?? " + ex.getMessage());
                 }
             }
@@ -98,8 +112,8 @@ public class MainGUI {
         SearchL = new JLabel();
         SearchL.setText("Search by Order ID");
         NorthP.add(SearchL, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        textField1 = new JTextField();
-        NorthP.add(textField1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        SearchtextField = new JTextField();
+        NorthP.add(SearchtextField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         UpdateB = new JButton();
         UpdateB.setText("Update Order");
         NorthP.add(UpdateB, new GridConstraints(0, 5, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

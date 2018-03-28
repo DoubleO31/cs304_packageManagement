@@ -27,7 +27,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","","");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -42,7 +42,7 @@ public class CreateOrder {
 
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("INSERT INTO CreateOrder VALUES (?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?)");
             ps.setString(1,o.getOrderid());
             ps.setString(2,o.getSenderName());
             ps.setString(3,o.getSenderAddress());
@@ -68,14 +68,22 @@ public class CreateOrder {
         }
     }
 
-    public Order selectOrder(String oID) throws Exception {
-        Statement stmt = null;
+    public  List<Order> selectOrder(String oID) throws Exception {
+
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
         ResultSet rs;
 
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery("select * from CREATEORDER WHERE ORDERID = oID");
-            return getOrder(rs);
+            stmt = con.prepareStatement("select * from ORDERS WHERE ORDERID = ?");
+            stmt.setString(1,oID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
         }
         finally {
             assert stmt != null;
@@ -118,7 +126,7 @@ public class CreateOrder {
         ResultSet rs;
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery("select * from CREATEORDER");
+            rs = stmt.executeQuery("select * from ORDERS");
 
 
 
@@ -146,6 +154,7 @@ public class CreateOrder {
         float price = rs.getFloat("PRICE");
         Date dateCreated = rs.getDate("DATECREATED");
         Date expectedArrival = rs.getDate("EXPECTEDARRIVAL");
+
 
 
 
