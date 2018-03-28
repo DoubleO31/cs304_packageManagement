@@ -1,21 +1,25 @@
-package cs304_packageManagement;
+//package cs304_packageManagement;
 
 import java.sql.Date;
 
 public class Order {
-    private String orderid;
+    private long orderid;
+    private long companyID;
+    private long custID;
     private String senderAddress;
     private String senderName;
     private String receiverAddress;
     private String receiverName;
     private float price;
-    private Date dateCreated;
-    private Date expectedArrival;
+    private java.sql.Date dateCreated;
+    private java.sql.Date expectedArrival;
 
 
-    public Order(String orderid, String senderAddress, String senderName, String receiverAddress, String receiverName,
+    public Order(long orderid,long companyID, long custID, String senderAddress, String senderName, String receiverAddress, String receiverName,
                  float price, Date dateCreated, Date expectedArrival){
         this.orderid = orderid;
+        this.companyID = companyID;
+        this.custID = custID;
         this.senderAddress = senderAddress;
         this.senderName = senderName;
         this.receiverAddress = receiverAddress;
@@ -26,7 +30,7 @@ public class Order {
         }
 
 
-    public String getOrderid() {
+    public long getOrderid() {
         return orderid;
     }
 
@@ -58,7 +62,7 @@ public class Order {
         return expectedArrival;
     }
 
-    public void setOrderid(String orderid) {
+    public void setOrderid(long orderid) {
         this.orderid = orderid;
     }
 

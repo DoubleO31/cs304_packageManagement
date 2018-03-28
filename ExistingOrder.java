@@ -3,9 +3,9 @@ import java.sql.Date;
 public class ExistingOrder extends Order {
     private String location;
     private String status;
-    public ExistingOrder(String orderid, String senderAddress, String senderName, String receiverAddress, String receiverName, float price,
+    public ExistingOrder(long orderid, long companyID, long custID, String senderAddress, String senderName, String receiverAddress, String receiverName, float price,
                          Date dateCreated, Date expectedArrival, String location, String status) {
-        super(orderid, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival);
+        super(orderid, companyID,custID, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival);
         this.location = location;
         this.status = status;
     }
