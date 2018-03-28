@@ -766,7 +766,7 @@ public class manager implements ActionListener {
     }
 
     /*
-    insert a CreateOrder
+    insert a order
     */
     private void insertCreateOrder() {
         int oID;
@@ -783,7 +783,7 @@ public class manager implements ActionListener {
         PreparedStatement ps;
 
         try {
-            ps = con.prepareStatement("INSERT INTO CreateOrder VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO orders VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
             System.out.print("\nOrder ID: ");
             oID = Integer.parseInt(in.readLine());
@@ -849,7 +849,7 @@ public class manager implements ActionListener {
             }
         }
     }
-    /* delete a createorder
+    /* delete a order
     */
     private void deleteCreateOrder() {
         int oID;
@@ -859,7 +859,7 @@ public class manager implements ActionListener {
         PreparedStatement ps;
 
         try {
-            ps = con.prepareStatement("DELETE FROM CreateOrder WHERE orderID = ? AND customerID = ? AND companyID = ? AND typename =?");
+            ps = con.prepareStatement("DELETE FROM orders WHERE orderID = ? AND customerID = ? AND companyID = ? AND typename =?");
 
             System.out.print("\nOrder ID: ");
             oID = Integer.parseInt(in.readLine());
