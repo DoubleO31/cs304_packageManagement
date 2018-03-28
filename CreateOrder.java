@@ -94,13 +94,15 @@ public class CreateOrder {
 
     //return list of values in a selected column
     public List<Object> selectColumn(String colName) throws Exception{
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         List<Object> columnVal = new ArrayList<>();
         ResultSet rs;
         int i = 1;
+
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery("SELECT "+ colName + "FROM CREATEORDER");
+            stmt = con.prepareStatement("select ? from orders");
+            stmt.setString(1, colName);
+            rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Object tempObj = rs.getObject(i);
