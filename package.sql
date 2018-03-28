@@ -92,10 +92,8 @@ companyID		INT not null,
 dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID),
-foreign key (orderID) REFERENCES orders
-ON DELETE no action,
+foreign key (orderID) REFERENCES orders,
 foreign key (companyID) REFERENCES deliveryCompany
-ON DELETE no action
 );
 
 create table finishedOrders(
