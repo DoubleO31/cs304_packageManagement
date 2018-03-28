@@ -1,6 +1,8 @@
 drop table packageContained;
 drop table finishedOrders;
+drop table updateExistingOrders;
 drop table existingOrders;
+drop table createOrders;
 drop table orders;
 drop table deliveryType;
 drop table manages;
