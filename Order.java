@@ -15,6 +15,7 @@ public class Order {
 
     public Order(String orderid, String senderAddress, String senderName, String receiverAddress, String receiverName,
                  float price, Date dateCreated, Date expectedArrival){
+
         this.orderid = orderid;
         this.senderAddress = senderAddress;
         this.senderName = senderName;
