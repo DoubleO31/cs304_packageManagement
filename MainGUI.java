@@ -74,6 +74,7 @@ public class MainGUI {
 
 
                 } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
                     System.out.println("Message:?? " + ex.getMessage());
                 }
             }
