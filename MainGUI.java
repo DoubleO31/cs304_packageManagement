@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class MainGUI {
@@ -27,6 +28,7 @@ public class MainGUI {
     private JButton SumB;
     private JLabel GroupL;
     private JTable table1;
+    private JScrollPane SouthS;
     CreateOrder temp = new CreateOrder();
 
 
@@ -53,7 +55,11 @@ public class MainGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MainGUI.this.temp.getAllOrders();
+
+                    OrderTableModel model = new OrderTableModel(MainGUI.this.temp.getAllOrders());
+
+                    table1.setModel(model);
+
                 } catch (Exception ex) {
                     System.out.println("Message:?? " + ex.getMessage());
                 }
@@ -127,8 +133,10 @@ public class MainGUI {
         AddB = new JButton();
         AddB.setText("Add Order");
         NorthP.add(AddB, new GridConstraints(0, 3, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        SouthS = new JScrollPane();
+        panel1.add(SouthS, BorderLayout.SOUTH);
         table1 = new JTable();
-        panel1.add(table1, BorderLayout.CENTER);
+        SouthS.setViewportView(table1);
     }
 
     /**

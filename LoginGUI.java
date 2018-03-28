@@ -119,20 +119,20 @@ public class LoginGUI implements ActionListener {
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 1 )
         {
             // if the username and password are valid,
-            // remove the login window and open the create order GUI
+            // remove the login window and display a text menu
             mainFrame.dispose();
             MainGUI.main(null);
         }
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 2 )
         {
             // if the username and password are valid,
-            // remove the login window
+            // remove the login window and display a text menu
             mainFrame.dispose();
         }
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 3 )
         {
             // if the username and password are valid,
-            // remove the login window
+            // remove the login window and display a text menu
             mainFrame.dispose();
         }
         else

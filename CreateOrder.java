@@ -1,6 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class CreateOrder {
@@ -23,7 +23,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","","");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
