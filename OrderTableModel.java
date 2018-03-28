@@ -1,4 +1,5 @@
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderTableModel extends AbstractTableModel {

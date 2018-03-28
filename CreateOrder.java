@@ -2,6 +2,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+import java.util.Random;
 
 public class CreateOrder {
     private Connection con;
@@ -38,18 +39,22 @@ public class CreateOrder {
 
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,o.getOrderid());
-            ps.setString(2,o.getSenderName());
-            ps.setString(3,o.getSenderAddress());
+            ps.setNull(2,java.sql.Types.INTEGER);
+            ps.setNull(3,java.sql.Types.INTEGER);
+            ps.setNull(4, Types.CHAR);
+            ps.setString(5,o.getSenderName());
+            ps.setString(6,o.getSenderAddress());
 
-            ps.setString(4,o.getReceiverAddress());
-            ps.setString(5,o.getReceiverName());
-            ps.setDouble(6,o.getPrice());
-            ps.setDate(7,o.getDateCreated());
-            ps.setDate(8,o.getExpectedArrival());
+            ps.setString(7,o.getReceiverAddress());
+            ps.setString(8,o.getReceiverName());
+            ps.setDouble(9,o.getPrice());
+            ps.setDate(10,o.getDateCreated());
+            ps.setDate(11,o.getExpectedArrival());
 
             ps.executeUpdate();
+
             con.commit();
             ps.close();
         } catch (SQLException ex) {

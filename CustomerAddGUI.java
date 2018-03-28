@@ -1,9 +1,15 @@
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.Date;
+import java.util.List;
 
 
 public class CustomerAddGUI {
@@ -16,6 +22,36 @@ public class CustomerAddGUI {
     private JTextField RecA;
     private JTextField SenN;
     private JButton updateButton;
+
+    public CustomerAddGUI(){
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    String tempRecN = RecN.getText();
+                    String tempSenA = SenA.getText();
+                    String tempRecA = RecA.getText();
+                    String tempSenN = SenN.getText();
+                    String tempprice = FinalPrice.getText();
+                    java.util.Date tempdate = new java.util.Date();
+                    java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
+
+                    Order temporder = new Order(Long.toString(MainGUI.generateRandom(12)),tempSenA,tempSenN,tempRecA,tempRecN,Float.valueOf(tempprice),sqlDate,null);
+                    CreateOrder temp = new CreateOrder();
+                    temp.addOrder(temporder);
+                    List<Order> orderslist;
+                    orderslist = temp.getAllOrders();
+                    OrderTableModel model = new OrderTableModel(orderslist);
+
+
+                } catch (Exception ex)
+                {
+                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame jf = new JFrame("CustomerAddOrder");
