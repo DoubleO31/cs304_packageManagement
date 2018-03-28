@@ -38,7 +38,7 @@ public class CreateOrder {
 
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("INSERT INTO CreateOrder VALUES (?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO orders VALUES (?,?,?,?,?,?,?,?)");
             ps.setString(1,o.getOrderid());
             ps.setString(2,o.getSenderName());
             ps.setString(3,o.getSenderAddress());
@@ -70,7 +70,7 @@ public class CreateOrder {
 
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery("select * from CREATEORDER WHERE ORDERID = oID");
+            rs = stmt.executeQuery("select * from ORDERS WHERE ORDERID = oID");
             return getOrder(rs);
         }
         finally {
@@ -87,7 +87,7 @@ public class CreateOrder {
 
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery("select * from CREATEORDER");
+            rs = stmt.executeQuery("select * from ORDERS");
 
 
 
