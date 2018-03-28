@@ -64,7 +64,7 @@ primary key (typename)
 );
 
 create table orders(
-orderID		int,
+orderID		NUMBER,
 customerID		int,
 companyID		int not null,
 typename		CHAR(30) not null,
@@ -85,7 +85,7 @@ ON DELETE CASCADE
 );
 
 create table existingOrders(
-orderID	 	int,
+orderID	 	NUMBER,
 currentLocation	VARCHAR(50) not null,
 status			VARCHAR(50),
 companyID		INT not null,
@@ -97,7 +97,7 @@ foreign key (companyID) REFERENCES deliveryCompany
 );
 
 create table finishedOrders(
-orderID	 	int,
+orderID	 	NUMBER,
 finishedDate DATE not null,
 status CHAR(50),
 primary key (orderID),
@@ -106,7 +106,7 @@ ON DELETE CASCADE
 );
 
 create table packageContained(
-orderID	int,
+orderID	NUMBER,
 packageNo	int,
 description VARCHAR(100),
 weight NUMBER not null,
