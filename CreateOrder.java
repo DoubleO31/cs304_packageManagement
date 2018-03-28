@@ -34,7 +34,50 @@ public class CreateOrder {
         }
 
     }
+    public void addOrder(Order o) throws Exception {
 
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement("INSERT INTO CreateOrder VALUES (?,?,?,?,?,?,?,?)");
+            ps.setString(1,o.getOrderid());
+            ps.setString(2,o.getSenderName());
+            ps.setString(3,o.getSenderAddress());
+
+            ps.setString(4,o.getReceiverAddress());
+            ps.setString(5,o.getReceiverName());
+            ps.setDouble(6,o.getPrice());
+            ps.setDate(7,o.getDateCreated());
+            ps.setDate(8,o.getExpectedArrival());
+
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+            try {
+                // undo the insert
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
+
+    public Order selectOrder(String oID) throws Exception {
+        Statement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("select * from CREATEORDER WHERE ORDERID = oID");
+            return getOrder(rs);
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
     //return a list of all orders(all column)
     public List<Order> getAllOrders() throws Exception {
         List<Order> orderslist = new ArrayList<>();
