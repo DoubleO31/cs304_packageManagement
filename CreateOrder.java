@@ -1,10 +1,7 @@
-package cs304_packageManagement;
-
-import cs304_packageManagement.Order;
+//package cs304_packageManagement;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 public class CreateOrder {
@@ -91,6 +88,50 @@ public class CreateOrder {
         }
     }
 
+    public void updateOrderLoc(ExistingOrder o, String newLoc) throws Exception{
+        o.setLocation(newLoc);
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement("UPDATE ExistingOrders SET currentLocation = ? WHERE orderID = ?");
+            ps.setString(1,newLoc);
+            ps.setString(2,o.getOrderid());
+
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+        }
+        catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+            try {
+                // undo the insert
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
+
+    public void deleteFinishedOrder(FinishedOrder o) {
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement("DELETE FROM FinishedOrders WHERE orderID = ?");
+            ps.setString(1,o.getOrderid());
+
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+        }catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+            try {
+                // undo the insert
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
+        }
+    }
 
     //return list of values in a selected column
     public List<Object> selectColumn(String colName) throws Exception{
