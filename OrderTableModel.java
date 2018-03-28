@@ -1,3 +1,7 @@
+package cs304_packageManagement;
+
+import cs304_packageManagement.Order;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 

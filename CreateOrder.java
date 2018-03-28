@@ -1,3 +1,7 @@
+package cs304_packageManagement;
+
+import cs304_packageManagement.Order;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.sql.Date;
@@ -78,13 +82,40 @@ public class CreateOrder {
             stmt.close();
         }
     }
+
+
+    //return list of values in a selected column
+    public List<Object> selectColumn(String colName) throws Exception{
+        Statement stmt = null;
+        List<Object> columnVal = new ArrayList<>();
+        ResultSet rs;
+        int i = 1;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT "+ colName + "FROM CREATEORDER");
+
+            while (rs.next()) {
+                Object tempObj = rs.getObject(i);
+                columnVal.add(tempObj);
+                i++;
+            }
+            return columnVal;
+        }
+        finally{
+            assert stmt != null;
+            stmt.close();
+        }
+
+    }
+
+
+
     //return a list of all orders(all column)
     public List<Order> getAllOrders() throws Exception {
         List<Order> orderslist = new ArrayList<>();
 
         Statement stmt = null;
         ResultSet rs;
-
         try {
             stmt = con.createStatement();
             rs = stmt.executeQuery("select * from CREATEORDER");
