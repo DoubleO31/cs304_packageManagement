@@ -1,10 +1,12 @@
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 
 public class MainGUI {
@@ -25,6 +27,7 @@ public class MainGUI {
     private JButton SumB;
     private JLabel GroupL;
     private JTable table1;
+    CreateOrder temp = new CreateOrder();
 
 
     public MainGUI() {
@@ -44,6 +47,16 @@ public class MainGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Select2GUI.main(null);
+            }
+        });
+        SearchB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    MainGUI.this.temp.getAllOrders();
+                } catch (Exception ex) {
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
             }
         });
     }

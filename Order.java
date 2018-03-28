@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class Order {
-    private int orderid;
+    private String orderid;
     private String senderAddress;
     private String senderName;
     private String receiverAddress;
@@ -11,7 +11,7 @@ public class Order {
     private Date expectedArrival;
 
 
-    public Order(int orderid, String senderAddress, String senderName, String receiverAddress, String receiverName,
+    public Order(String orderid, String senderAddress, String senderName, String receiverAddress, String receiverName,
                  float price, Date dateCreated, Date expectedArrival){
         this.orderid = orderid;
         this.senderAddress = senderAddress;
@@ -24,7 +24,7 @@ public class Order {
         }
 
 
-    public int getOrderid() {
+    public String getOrderid() {
         return orderid;
     }
 
@@ -56,7 +56,7 @@ public class Order {
         return expectedArrival;
     }
 
-    public void setOrderid(int orderid) {
+    public void setOrderid(String orderid) {
         this.orderid = orderid;
     }
 
