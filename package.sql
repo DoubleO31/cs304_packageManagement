@@ -93,9 +93,9 @@ dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID),
 foreign key (orderID) REFERENCES orders
-ON DELETE CASCADE,
+ON DELETE RESTRICT,
 foreign key (companyID) REFERENCES deliveryCompany
-ON DELETE CASCADE
+ON DELETE RESTRICT
 );
 
 create table finishedOrders(
