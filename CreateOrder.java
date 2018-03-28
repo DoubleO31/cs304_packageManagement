@@ -115,7 +115,7 @@ public class CreateOrder {
     public void deleteFinishedOrder(FinishedOrder o) {
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("DELETE FROM FinishedOrders WHERE orderID = ?");
+            ps = con.prepareStatement("DELETE FROM orders WHERE orderID = ?");
             ps.setString(1,o.getOrderid());
 
             ps.executeUpdate();
