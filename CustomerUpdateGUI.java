@@ -4,6 +4,9 @@ import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class CustomerUpdateGUI {
     private JPanel WestP;
@@ -16,6 +19,52 @@ public class CustomerUpdateGUI {
     private JTextField RecA;
     private JTextField SenN;
     private JButton updateButton;
+    CreateOrder temp = new CreateOrder();
+
+    public CustomerUpdateGUI() {
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    //System.out.println("reached 30");
+                    List<ExistingOrder> orders;
+                    if (OrderN.getText() != null && OrderN.getText().trim().length()>0) {
+                    long oID =Long.parseLong(OrderN.getText()) ;
+                    String sendName = SenN.getText();
+                    String sendAddr = SenA.getText();
+                    String ReceName = RecN.getText();
+                    String ReceAddr = RecA.getText();
+
+                        //System.out.println("reached 39");
+                        orders = CustomerUpdateGUI.this.temp.selectEOrder(oID);
+                        if (orders.isEmpty()!= true) {
+                            //System.out.println("reached 42");
+                            if (sendName != null && sendName.trim().length() > 0) {
+                                CustomerUpdateGUI.this.temp.updateOrderSenderName(orders.get(0),sendName);
+                            }
+                            if (sendAddr != null && sendAddr.trim().length()>0) {
+                                CustomerUpdateGUI.this.temp.updateOrderSenderAddr(orders.get(0),sendAddr);
+                            }
+                            if (ReceName != null && ReceName.trim().length()>0) {
+                                CustomerUpdateGUI.this.temp.updateOrderRecevName(orders.get(0),ReceName);
+                            }
+                            if (ReceAddr != null && ReceAddr.trim().length()>0) {
+                                CustomerUpdateGUI.this.temp.updateOrderRecevAddr(orders.get(0),ReceAddr);
+                            }
+                            if (FinalPrice.getText()!=null && FinalPrice.getText().trim().length()>0) {
+                                float price =Float.parseFloat(FinalPrice.getText());
+                                CustomerUpdateGUI.this.temp.updatePrice(orders.get(0),price);
+                            }
+                        }
+                    }
+                }catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
+            }
+        });
+    }
 
     public static void main(String[] args) {
         JFrame jf = new JFrame("CustomerUpdateOrder");
@@ -23,6 +72,7 @@ public class CustomerUpdateGUI {
         jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jf.setSize(400, 250);
         jf.setVisible(true);
+
     }
 
     {
