@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class CustomerUpdateGUI {
+public class CustomerUpdateGUI extends MainGUI {
     private JPanel WestP;
     private JPanel EastP;
     private JPanel MainP;
@@ -19,9 +19,13 @@ public class CustomerUpdateGUI {
     private JTextField RecA;
     private JTextField SenN;
     private JButton updateButton;
-    CreateOrder temp = new CreateOrder();
+
 
     public CustomerUpdateGUI() {
+        setTitle("CustomerUpdateOrder");
+        setContentPane(MainP);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(400, 250);
 
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -38,7 +42,7 @@ public class CustomerUpdateGUI {
 
                         //System.out.println("reached 39");
                         orders = CustomerUpdateGUI.this.temp.selectEOrder(oID);
-                        if (orders.isEmpty() != true) {
+                        if (!orders.isEmpty()) {
                             //System.out.println("reached 42");
                             if (sendName != null && sendName.trim().length() > 0) {
                                 CustomerUpdateGUI.this.temp.updateOrderSenderName(orders.get(0), sendName);
@@ -57,6 +61,7 @@ public class CustomerUpdateGUI {
                                 CustomerUpdateGUI.this.temp.updatePrice(orders.get(0), price);
                             }
                         }
+                        dispose();
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -67,11 +72,16 @@ public class CustomerUpdateGUI {
     }
 
     public static void main(String[] args) {
-        JFrame jf = new JFrame("CustomerUpdateOrder");
-        jf.setContentPane(new CustomerUpdateGUI().MainP);
-        jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jf.setSize(400, 250);
-        jf.setVisible(true);
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    CustomerUpdateGUI frame = new CustomerUpdateGUI();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 
@@ -130,12 +140,12 @@ public class CustomerUpdateGUI {
         EastP.add(RecA, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         SenN = new JTextField();
         EastP.add(SenN, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        MainP.add(panel1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        MainP.add(panel2, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         updateButton = new JButton();
         updateButton.setText("Update");
-        panel1.add(updateButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel2.add(updateButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

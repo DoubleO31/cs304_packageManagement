@@ -23,13 +23,13 @@ public class MainGUI extends JFrame {
     private JButton DeleteB;
     private JButton View;
     private JButton SumB;
-    private JTable table1;
+    protected JTable table1;
     private JScrollPane SouthS;
     private JTextField Package;
     private JButton maxPriceButton;
     private JButton returnToLogInButton;
     private int row = -1;
-    CreateOrder temp = new CreateOrder();
+    protected CreateOrder temp = new CreateOrder();
 
 
     public MainGUI() {
@@ -140,13 +140,17 @@ public class MainGUI extends JFrame {
         });
     }
 
-/*    public void setTable1(OrderTableModel m) {
-        table1.setModel(m);
+    public void setTable1() {
+        List<Order> orderslist = null;
+        try {
+            orderslist = MainGUI.this.temp.getAllOrders();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        OrderTableModel model = new OrderTableModel(orderslist);
+        table1.setModel(model);
     }
 
-    public void setTable1(OrderTableModel m){
-        table1.setModel(m);
-    }*/
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
