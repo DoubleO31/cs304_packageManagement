@@ -6,6 +6,7 @@ public class Order {
     private long orderid;
     private long companyID;
     private long custID;
+    private String type;
     private String senderAddress;
     private String senderName;
     private String receiverAddress;
@@ -15,11 +16,12 @@ public class Order {
     private java.sql.Date expectedArrival;
 
 
-    public Order(long orderid,long companyID, long custID, String senderAddress, String senderName, String receiverAddress, String receiverName,
+    public Order(long orderid,long companyID, long custID,String type, String senderAddress, String senderName, String receiverAddress, String receiverName,
                  float price, Date dateCreated, Date expectedArrival){
         this.orderid = orderid;
         this.companyID = companyID;
         this.custID = custID;
+        this.type = type;
         this.senderAddress = senderAddress;
         this.senderName = senderName;
         this.receiverAddress = receiverAddress;
@@ -32,6 +34,17 @@ public class Order {
 
     public long getOrderid() {
         return orderid;
+    }
+
+    public long getCompanyID() {
+        return  companyID;
+    }
+    public long getCustID() {
+        return custID;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getReceiverAddress() {
