@@ -67,7 +67,7 @@ create table orders(
 orderID		NUMBER not null,
 customerID		int not null,
 companyID		int not null,
-typename		CHAR(30) not null,
+typename		CHAR(50) not null,
 senderName		VARCHAR(50) not null,
 senderAddress	VARCHAR(50) not null,
 receiverAddress	VARCHAR(50) not null,
