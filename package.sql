@@ -64,8 +64,8 @@ primary key (typename)
 );
 
 create table orders(
-orderID		int,
-customerID		int,
+orderID		NUMBER not null,
+customerID		int not null,
 companyID		int not null,
 typename		CHAR(30) not null,
 senderName		VARCHAR(50) not null,
@@ -85,21 +85,19 @@ ON DELETE CASCADE
 );
 
 create table existingOrders(
-orderID	 	int,
+orderID	 	NUMBER,
 currentLocation	VARCHAR(50) not null,
 status			VARCHAR(50),
 companyID		INT not null,
 dateupdated		DATE not null,
 instance		VARCHAR(50),
 primary key (orderID),
-foreign key (orderID) REFERENCES orders
-ON DELETE CASCADE,
+foreign key (orderID) REFERENCES orders,
 foreign key (companyID) REFERENCES deliveryCompany
-ON DELETE CASCADE
 );
 
 create table finishedOrders(
-orderID	 	int,
+orderID	 	NUMBER,
 finishedDate DATE not null,
 status CHAR(50),
 primary key (orderID),
@@ -108,7 +106,7 @@ ON DELETE CASCADE
 );
 
 create table packageContained(
-orderID	int,
+orderID	NUMBER,
 packageNo	int,
 description VARCHAR(100),
 weight NUMBER not null,
@@ -213,53 +211,53 @@ insert into deliveryType
 values('Internation Express', 16.99, 'Within one week');
 
 insert into orders
-values(100056478920,21367537,94237, 'Regular', 'John Smith', '150 W 15th Ave', '830 10 Ave SW, Calgary',
+values(10005647,21367537,94237, 'Regular', 'John Smith', '150 W 15th Ave', '830 10 Ave SW, Calgary',
        'MEC Calgary', 5.45, TO_DATE('28-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
        
 insert into orders
-values(103024324887,57384360,94237, 'Fast', 'Alan Jiang', '2463 W 10th Ave', '2500 University Dr NW, Calgary',
+values(10302432,57384360,94237, 'Fast', 'Alan Jiang', '2463 W 10th Ave', '2500 University Dr NW, Calgary',
        'University of Calgary Outdoor Centre', 7.88, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
      
 insert into orders
-values(102064585959,21367537,34786, 'Express', 'Amazon', '109 Braid St, New Westminster', '3432 Cambie St',
+values(10206458,21367537,34786, 'Express', 'Amazon', '109 Braid St, New Westminster', '3432 Cambie St',
        'Julia Hebb', 32.43, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('15-FEB-2018','DD-MM-YYYY'));
        
 insert into orders
-values(101033209248,45221778,98765, 'Regular', 'Anna Roger', '955 Thurlow St', '22165 Dewdney Trunk Rd Maple Ridge',
+values(10103320,45221778,98765, 'Regular', 'Anna Roger', '955 Thurlow St', '22165 Dewdney Trunk Rd Maple Ridge',
        'Rick Douglas', 4.33, TO_DATE('01-MAR-2018','DD-MM-YYYY'),TO_DATE('14-FEB-2018','DD-MM-YYYY'));
     
 insert into orders
-values(101156437829,77654321,34322, 'Internation Express', 'David Johonson', '1855 Nelson St', '4730 University Way NE Seattle',
+values(10115643,77654321,34322, 'Internation Express', 'David Johonson', '1855 Nelson St', '4730 University Way NE Seattle',
        'Maria Johonson', 50.8, TO_DATE('21-FEB-2018','DD-MM-YYYY'),TO_DATE('13-FEB-2018','DD-MM-YYYY'));
 
 insert into existingOrders
-values(100056478920, 'Vancouver', 'Clearing Custom', 94237, TO_DATE('26-FEB-2018','DD-MM-YYYY'), 'daily update');
+values(10005647, 'Vancouver', 'Clearing Custom', 94237, TO_DATE('26-FEB-2018','DD-MM-YYYY'), 'daily update');
 
 insert into existingOrders
-values(103024324887, 'Richmond', 'Clearing Custom', 94237, TO_DATE('17-FEB-2018','DD-MM-YYYY'), 'custom clear');
+values(10302432, 'Richmond', 'Clearing Custom', 94237, TO_DATE('17-FEB-2018','DD-MM-YYYY'), 'custom clear');
 
 insert into existingOrders
-values(102064585959, 'Whiterock', 'Clearing Custom', 34786, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'package loss');
+values(10206458, 'Whiterock', 'Clearing Custom', 34786, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'package loss');
 
 insert into finishedOrders
-values(101033209248, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
+values(10103320, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
 
 insert into finishedOrders
-values(101156437829, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'Customer return');
+values(10115643, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'Customer return');
 
 insert into packageContained
-values(100056478920, 43456, 'Personal', 1.2);
+values(10005647, 43456, 'Personal', 1.2);
 
 insert into packageContained
-values(103024324887, 53345, 'Computer', 2.1);
+values(10302432, 53345, 'Computer', 2.1);
 
 insert into packageContained
-values(102064585959, 12165, 'From amazon', 1.5);
+values(10206458, 12165, 'From amazon', 1.5);
 
 insert into packageContained
-values(101033209248, 77653, 'Fragile', 3);
+values(10103320, 77653, 'Fragile', 3);
 
 insert into packageContained
-values(101156437829, 34351, 'Personal', 1);
+values(10115643, 34351, 'Personal', 1);
 
 commit work;
