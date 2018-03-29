@@ -289,30 +289,19 @@ public class CreateOrder {
         }
     }
 
-    public void deleteFinishedOrder(FinishedOrder o) {
-        PreparedStatement ps;
+    public void deleteOrder(long orderId) throws SQLException{
+        PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("DELETE FROM Orders WHERE orderID = ?");
-            ps.setLong(1,o.getOrderid());
+            ps = con.prepareStatement("DELETE FROM orders WHERE orderID = ?");
+            ps.setLong(1, orderId);
 
             ps.executeUpdate();
             con.commit();
             ps.close();
-            ps = con.prepareStatement("DELETE FROM FinishedOrders WHERE orderID = ?");
-            ps.setLong(1,o.getOrderid());
-
-            ps.executeUpdate();
-            con.commit();
+        }
+        finally {
+            assert ps != null;
             ps.close();
-        }catch (SQLException ex) {
-            System.out.println("Message: " + ex.getMessage());
-            try {
-                // undo the insert
-                con.rollback();
-            } catch (SQLException ex2) {
-                System.out.println("Message: " + ex2.getMessage());
-                System.exit(-1);
-            }
         }
     }
 
