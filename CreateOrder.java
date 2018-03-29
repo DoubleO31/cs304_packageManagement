@@ -283,7 +283,7 @@ public class CreateOrder {
         int i = 1;
 
         try {
-            stmt = con.prepareStatement("select ? from orders");
+            stmt = con.prepareStatement("select ? from Orders");
             stmt.setString(1, colName);
             rs = stmt.executeQuery();
 
