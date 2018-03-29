@@ -105,8 +105,9 @@ public class LoginGUI implements ActionListener {
     private int connect(String username, String password)
     {
         if (custCheck(username) & password.equals("123456")){return 1;}
-        if (username.equals("employee")& password.equals("123456")){return 2;}
-        if (username.equals("delivery")& password.equals("123456")){return 3;}
+        else if (username.equals("employee")& password.equals("123456")){return 2;}
+        else if (username.equals("delivery")& password.equals("123456")){return 3;}
+
         return 0;
     }
     
@@ -130,14 +131,14 @@ public class LoginGUI implements ActionListener {
             a[0] = usernameField.getText();
             MainGUI.main(a);
         }
-        if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 2 )
+        else if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 2 )
         {
             // if the username and password are valid,
             // remove the login window and display a text menu
             mainFrame.dispose();
             EmployeeGUI.main(null);
         }
-        if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 3 )
+        else if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 3 )
         {
             // if the username and password are valid,
             // remove the login window and display a text menu
@@ -147,10 +148,12 @@ public class LoginGUI implements ActionListener {
         else
         {
             loginAttempts++;
+            JOptionPane.showMessageDialog(null,"Wrong username/password");
 
             if (loginAttempts >= 3)
             {
                 mainFrame.dispose();
+                JOptionPane.showMessageDialog(null,"3 times in a roll really??");
                 System.exit(-1);
             }
             else
