@@ -1,3 +1,4 @@
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.*;
@@ -43,7 +44,7 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,94237);
+            ps.setLong(3,o.getCompanyID());
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
@@ -437,3 +438,7 @@ public class CreateOrder {
         CreateOrder c = new CreateOrder();
     }
 }
+
+
+
+
