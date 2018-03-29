@@ -81,7 +81,8 @@ ON DELETE CASCADE,
 foreign key (customerID) REFERENCES customer
 ON DELETE CASCADE,
 foreign key (typename) REFERENCES deliveryType
-ON DELETE CASCADE
+ON DELETE CASCADE,
+check (price >= 10)
 );
 
 create table existingOrders(
@@ -212,11 +213,11 @@ values('Internation Express', 16.99, 'Within one week');
 
 insert into orders
 values(10005647,21367537,94237, 'Regular', 'John Smith', '150 W 15th Ave', '830 10 Ave SW, Calgary',
-       'MEC Calgary', 5.45, TO_DATE('28-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
+       'MEC Calgary', 15.45, TO_DATE('28-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
        
 insert into orders
 values(10302432,57384360,94237, 'Fast', 'Alan Jiang', '2463 W 10th Ave', '2500 University Dr NW, Calgary',
-       'University of Calgary Outdoor Centre', 7.88, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
+       'University of Calgary Outdoor Centre', 27.88, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
      
 insert into orders
 values(10206458,21367537,34786, 'Express', 'Amazon', '109 Braid St, New Westminster', '3432 Cambie St',
@@ -224,7 +225,7 @@ values(10206458,21367537,34786, 'Express', 'Amazon', '109 Braid St, New Westmins
        
 insert into orders
 values(10103320,45221778,98765, 'Regular', 'Anna Roger', '955 Thurlow St', '22165 Dewdney Trunk Rd Maple Ridge',
-       'Rick Douglas', 4.33, TO_DATE('01-MAR-2018','DD-MM-YYYY'),TO_DATE('14-FEB-2018','DD-MM-YYYY'));
+       'Rick Douglas', 14.33, TO_DATE('01-MAR-2018','DD-MM-YYYY'),TO_DATE('14-FEB-2018','DD-MM-YYYY'));
     
 insert into orders
 values(10115643,77654321,34322, 'Internation Express', 'David Johonson', '1855 Nelson St', '4730 University Way NE Seattle',
