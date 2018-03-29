@@ -67,12 +67,14 @@ public class MainGUI extends JFrame {
 
                     if (oId != null && oId.trim().length() > 0) {
 
-                        orderslist = MainGUI.this.temp.selectOrder(oId.trim());
+                        orderslist = MainGUI.this.temp.selectOrder(oId.trim(), Long.toString(custID));
 
 
                     } else {
 
-                        orderslist = MainGUI.this.temp.viewOrder(custID);
+
+                        orderslist = MainGUI.this.temp.getAllOrders(Long.toString(custID));
+
                     }
                     OrderTableModel model = new OrderTableModel(orderslist);
 
@@ -110,6 +112,19 @@ public class MainGUI extends JFrame {
                 row = -1;
             }
         });
+
+        SumB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(null, "Total cost is: " + Float.toString(MainGUI.this.temp.sumOfPrice(custID)));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
+            }
+        });
+
         View.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

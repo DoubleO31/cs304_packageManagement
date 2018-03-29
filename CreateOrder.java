@@ -335,16 +335,37 @@ public class CreateOrder {
             stmt.close();
         }
     }
+// sum of price for each customerID
+    public float sumOfPrice(long customerID) throws Exception{
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        float sum_price;
+        try{
+            stmt = con.prepareStatement("select sum(PRICE) as max_price from ORDERS where CUSTOMERID = ?");
+            stmt.setLong(1, customerID);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                sum_price = rs.getFloat(1);
+                return sum_price;
+            }
+            return 0;
+        } finally {
+            assert stmt != null;
+            stmt.close();
+        }
 
-    // view orders only under specific customerID
-   public List<Order> viewOrder(long customerID) throws Exception{
+
+    }
+
+    // view orders of specific companyID
+   public List<Order> viewOrder(long companyID) throws Exception{
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM orders WHERE CUSTOMERID = ?");
-            stmt.setLong(1,customerID);
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE COMPANYID = ?");
+            stmt.setLong(1,companyID);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Order tempOrder = getOrder(rs);
@@ -448,6 +469,57 @@ public class CreateOrder {
                 orderslist.add(tempOrder);
             }
 
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    //return a list of all orders given an customer id(all column)
+    public List<Order> getAllOrders(String id) throws Exception {
+        List<Order> orderslist = new ArrayList<>();
+
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        try {
+            stmt = con.prepareStatement("select * from ORDERS WHERE CUSTOMERID = ?");
+            stmt.setString(1,id);
+            rs = stmt.executeQuery();
+
+
+
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    public List<Order> selectOrder(String oID, String id) throws Exception {
+
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("select * from ORDERS WHERE ORDERID = ? AND CUSTOMERID = ?");
+            stmt.setString(1,oID);
+            stmt.setString(2,id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
 
             return orderslist;
         }
