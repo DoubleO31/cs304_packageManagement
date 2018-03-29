@@ -1,6 +1,4 @@
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.*;
 
 
 public class CreateOrder {
@@ -25,7 +23,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_t5g1b","a83751157");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -52,7 +50,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11, o.getExpectedArrival());
 
             ps.executeUpdate();
 
