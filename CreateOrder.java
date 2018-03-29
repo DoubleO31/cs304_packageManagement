@@ -42,10 +42,10 @@ public class CreateOrder {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setLong(1,o.getOrderid());
-            ps.setLong(2,o.getCustID());
-            ps.setLong(3,o.getCompanyID());
-            ps.setString(4,o.getType());
+            ps.setString(1,o.getOrderid());
+            ps.setDouble(2,customerID);
+            ps.setNull(3,java.sql.Types.INTEGER);
+            ps.setNull(4, Types.CHAR);
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
 
@@ -53,20 +53,23 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setDate(11,o.getExpectedArrival());
-
+            ps.setNull(11, Types.DATE);
 
             ps.executeUpdate();
+
             con.commit();
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("Message: " + ex.getMessage());
+            System.out.println("Message:?? " + ex.getMessage());
             try {
                 // undo the insert
                 con.rollback();
-            } catch (SQLException ex2) {
+
+            }
+            catch (SQLException ex2) {
                 System.out.println("Message: " + ex2.getMessage());
                 System.exit(-1);
+                throw ex;
             }
         }
     }
