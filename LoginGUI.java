@@ -1,9 +1,10 @@
 // for the login window
-import sun.applet.Main;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 public class LoginGUI implements ActionListener {
 
     // user is allowed 3 login attempts

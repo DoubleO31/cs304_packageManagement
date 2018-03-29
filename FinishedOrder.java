@@ -1,6 +1,4 @@
-package cs304_packageManagement;
-
-import cs304_packageManagement.Order;
+//package cs304_packageManagement;
 
 import java.sql.Date;
 

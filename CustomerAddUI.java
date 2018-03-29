@@ -35,7 +35,7 @@ public class CustomerAddUI {
                     Date tempdate = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
 
-                    Order temporder = new Order(Long.toString(MainGUI.generateRandom(12)), tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, null);
+                    Order temporder = new Order(0, 0, 0, tempRecA, tempRecN, "","", null, 0, null, null);
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
                     List<Order> orderslist;

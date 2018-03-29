@@ -1,4 +1,4 @@
-package cs304_packageManagement;
+//package cs304_packageManagement;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -42,8 +42,8 @@ public class CreateOrder {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setString(1,o.getOrderid());
-            ps.setDouble(2,customerID);
+            ps.setLong(1,o.getOrderid());
+            ps.setLong(2,o.getCustID());
             ps.setNull(3,java.sql.Types.INTEGER);
             ps.setNull(4, Types.CHAR);
             ps.setString(5,o.getSenderName());
