@@ -28,6 +28,7 @@ public class MainGUI {
     private JTable table1;
     private JScrollPane SouthS;
     private JTextField Package;
+    private int row;
     CreateOrder temp = new CreateOrder();
 
 
