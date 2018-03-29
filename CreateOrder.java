@@ -25,7 +25,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_t5g1b","a83751157");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -43,7 +43,7 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,0);
+            ps.setLong(3,94237);
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
@@ -52,7 +52,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11, o.getExpectedArrival());
 
             ps.executeUpdate();
 
@@ -105,7 +105,7 @@ public class CreateOrder {
             ps.setString(2,o.getLocation());
             ps.setString(3,o.getStatus());
 
-            ps.setLong(4,o.getCompanyID());
+            ps.setLong(4,94237);
             ps.setDate(5,o.getDateUpdated());
             ps.setString(6,o.getInstance());
 
@@ -337,7 +337,7 @@ public class CreateOrder {
         List<Packages> packlist = new ArrayList<>();
 
         try{
-            stmt = con.prepareStatement("select p.packageNo, p.description, p.weight " +
+            stmt = con.prepareStatement("select p.packageNo, p.decription, p.weight " +
                     " From packageContained p" +
                     " INNER JOIN orders o ON p.orderID = o.orderID" +
                     " WHERE o.orderID = ?");
