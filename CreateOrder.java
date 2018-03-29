@@ -26,6 +26,7 @@ public class CreateOrder {
 
         try
         {
+
             con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_a6o0b","a41533143");
 
             System.out.println("\nConnected to Oracle!");
@@ -53,7 +54,8 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setDate(11, o.getExpectedArrival());
+            ps.setDate(11,o.getExpectedArrival());
+
 
             ps.executeUpdate();
 
@@ -105,8 +107,7 @@ public class CreateOrder {
             ps.setLong(1,o.getOrderid());
             ps.setString(2,o.getLocation());
             ps.setString(3,o.getStatus());
-
-            ps.setLong(4,94237);
+            ps.setLong(4,o.getCompanyID());
             ps.setDate(5,o.getDateUpdated());
             ps.setString(6,o.getInstance());
 
@@ -286,6 +287,78 @@ public class CreateOrder {
                 System.out.println("Message: " + ex2.getMessage());
                 System.exit(-1);
             }
+        }
+    }
+
+
+    public  List<Order> beyondAvg() throws Exception {
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2)");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+    
+    public  List<Order> groupBy(String info) throws Exception {
+
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("SELECT t.companyid, t.avgprice from" +
+                    "(SELECT o.companyid, avg(o.price) as avgprice" +
+                    "FROM orders o GROUP BY o.companyid) t" +
+                    "where t.avgprice = (select MAX(t2.avgprice)" +
+                    "FROM (select o.companyid, avg(o.price) as avgprice" +
+                    "from orders o GROUP BY o.companyid) t2)");
+            stmt.setString(1,info);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    // view orders only under specific customerID
+    public List<Order> viewOrder(int customerID) throws Exception{
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE CUSTOMERID = ?");
+            stmt.setInt(1,customerID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
         }
     }
 
