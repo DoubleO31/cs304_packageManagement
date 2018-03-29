@@ -30,7 +30,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_a6o0b","a41533143");
 
             System.out.println("\nConnected to Oracle!");
         }
