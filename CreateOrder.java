@@ -308,33 +308,37 @@ public class CreateOrder {
         }
     }
     
-/*    public  List<Order> groupBy(String info) throws Exception {
-
+    public  String groupBy(long custID) throws Exception {
+        String s = "";
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs;
 
         try {
-            stmt = con.prepareStatement("SELECT t.companyid, t.avgprice from" +
-                    "(SELECT o.companyid, avg(o.price) as avgprice" +
-                    "FROM orders o GROUP BY o.companyid) t" +
-                    "where t.avgprice = (select MAX(t2.avgprice)" +
-                    "FROM (select o.companyid, avg(o.price) as avgprice" +
-                    "from orders o GROUP BY o.companyid) t2)");
-            stmt.setString(1,info);
+            stmt = con.prepareStatement("SELECT t.companyid, t.avgprice " +
+                    "from (SELECT o.companyid, avg(o.price) as avgprice " +
+                    "FROM orders o where o.customerID = ? " +
+                    "GROUP BY o.companyid) t " +
+                    "WHERE t.avgprice = (select MAX(t2.avgprice) " +
+                    "FROM (select o2.companyid, avg(o2.price) as avgprice " +
+                    "from orders o2 " +
+                    "where o2.customerID = ? GROUP BY o2.companyid) t2)");
+            stmt.setLong(1, custID);
+            stmt.setLong(2, custID);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Order tempOrder = getOrder(rs);
-                orderslist.add(tempOrder);
+                s += "Company ID: " + rs.getString("companyid") + " ";
+                s += "Average Price: " + rs.getString("avgprice") + "\r\n";
             }
 
-            return orderslist;
+            return s;
         }
         finally {
             assert stmt != null;
             stmt.close();
         }
-    }*/
+    }
+    
 // sum of price for each customerID
     public float sumOfPrice(long customerID) throws Exception{
         PreparedStatement stmt = null;
