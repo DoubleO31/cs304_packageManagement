@@ -43,16 +43,16 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,0);
+            ps.setLong(3,o.getCompanyID());
+            System.out.println(o.getCompanyID());
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
-
             ps.setString(7,o.getReceiverAddress());
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11,o.getExpectedArrival());
 
             ps.executeUpdate();
 

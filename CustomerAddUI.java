@@ -2,6 +2,8 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -18,7 +20,7 @@ public class CustomerAddUI {
     private JPanel EastP;
     private JPanel WestP;
     private JPanel MainP;
-    String[] DeliveryType = {"Regular", "Fast", "Express", "International Express"};
+    private JComboBox DeliveryCbox;
 
     public CustomerAddUI() {
         updateButton.addActionListener(new ActionListener() {
@@ -34,8 +36,20 @@ public class CustomerAddUI {
                     java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
                     Date arr = new GregorianCalendar(2018,3,15).getTime();
                     java.sql.Date arrD = new java.sql.Date(arr.getTime());
+                    String tempd = (String)DeliveryCbox.getSelectedItem();
+                    Long templ;
+                    if(tempd== "Canada Post"){templ = new Long(94237);
+                    } else if(tempd== "Fedex"){templ = new Long(65789);
 
-                    Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(),
+                    } else if(tempd== "UPS"){templ = new Long(34786);
+
+                    } else if(tempd== "DHL"){templ = new Long(98765);
+
+                    } else {templ = new Long(34322);
+
+                    }
+
+                    Order temporder = new Order(MainGUI.generateRandom(8), templ, 0, (String) DelT.getSelectedItem(),
                             tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
