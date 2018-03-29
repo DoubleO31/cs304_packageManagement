@@ -1,5 +1,3 @@
-package cs304_packageManagement;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.*;
@@ -7,6 +5,7 @@ import java.util.*;
 
 public class CreateOrder {
     private Connection con;
+    private long CustomerID = 21363537;
 
 
     public CreateOrder(){
@@ -26,7 +25,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_t5g1b","a83751157");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -42,10 +41,10 @@ public class CreateOrder {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setString(1,o.getOrderid());
-            ps.setDouble(2,customerID);
-            ps.setNull(3,java.sql.Types.INTEGER);
-            ps.setNull(4, Types.CHAR);
+            ps.setLong(1,o.getOrderid());
+            ps.setLong(2,CustomerID);
+            ps.setLong(3,0);
+            ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
 
@@ -53,7 +52,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11,o.getDateCreated());
 
             ps.executeUpdate();
 
