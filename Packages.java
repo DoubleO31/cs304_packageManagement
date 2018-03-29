@@ -1,5 +1,3 @@
-package cs304_packageManagement;
-
 public class Packages {
     long orderId;
     int packageNo;

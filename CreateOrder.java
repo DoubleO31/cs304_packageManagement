@@ -43,7 +43,7 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,94237);
+            ps.setLong(3,0);
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
@@ -337,7 +337,7 @@ public class CreateOrder {
         List<Packages> packlist = new ArrayList<>();
 
         try{
-            stmt = con.prepareStatement("select p.packageNo, p.decription, p.weight " +
+            stmt = con.prepareStatement("select p.packageNo, p.description, p.weight " +
                     " From packageContained p" +
                     " INNER JOIN orders o ON p.orderID = o.orderID" +
                     " WHERE o.orderID = ?");
