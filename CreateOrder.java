@@ -308,6 +308,34 @@ public class CreateOrder {
         }
     }
     
+    public  List<Order> groupBy(String info) throws Exception {
+
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("SELECT t.companyid, t.avgprice from" +
+                    "(SELECT o.companyid, avg(o.price) as avgprice" +
+                    "FROM orders o GROUP BY o.companyid) t" +
+                    "where t.avgprice = (select MAX(t2.avgprice)" +
+                    "FROM (select o.companyid, avg(o.price) as avgprice" +
+                    "from orders o GROUP BY o.companyid) t2)");
+            stmt.setString(1,info);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+    
     public void deleteOrder(long orderId) throws SQLException{
         PreparedStatement ps = null;
         try {
