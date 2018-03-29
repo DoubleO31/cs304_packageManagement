@@ -35,11 +35,16 @@ public class CustomerAddUI {
                     Date arr = new GregorianCalendar(2018,3,15).getTime();
                     java.sql.Date arrD = new java.sql.Date(arr.getTime());
 
+
                     Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(),
                             tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
+                    ExistingOrder eOrder = new ExistingOrder(temporder.getOrderid(),0,0,(String) DelT.getSelectedItem(),
+                            tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD,"Vancouver",
+                            "Committed",sqlDate,"new Order");
                     CreateOrder temp = new CreateOrder();
-                    temp.addOrder(temporder);
 
+                    temp.addOrder(temporder);
+                    temp.addEOrder(eOrder);
 
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
