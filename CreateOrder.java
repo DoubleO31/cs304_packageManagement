@@ -25,7 +25,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_a6o0b","a41533143");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -308,7 +308,7 @@ public class CreateOrder {
         }
     }
     
-    public  List<Order> groupBy(String info) throws Exception {
+/*    public  List<Order> groupBy(String info) throws Exception {
 
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -334,7 +334,7 @@ public class CreateOrder {
             assert stmt != null;
             stmt.close();
         }
-    }
+    }*/
 // sum of price for each customerID
     public float sumOfPrice(long customerID) throws Exception{
         PreparedStatement stmt = null;
@@ -486,6 +486,33 @@ public class CreateOrder {
         ResultSet rs;
         try {
             stmt = con.prepareStatement("select * from ORDERS WHERE CUSTOMERID = ?");
+            stmt.setString(1,id);
+            rs = stmt.executeQuery();
+
+
+
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    //return a list of all orders given an customer id(all column)
+    public List<Order> getAllDeliOrders(String id) throws Exception {
+        List<Order> orderslist = new ArrayList<>();
+
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        try {
+            stmt = con.prepareStatement("select * from ORDERS WHERE COMPANYID = ?");
             stmt.setString(1,id);
             rs = stmt.executeQuery();
 
