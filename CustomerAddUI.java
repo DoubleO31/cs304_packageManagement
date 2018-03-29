@@ -56,8 +56,12 @@ public class CustomerAddUI {
 
                     Order temporder = new Order(MainGUI.generateRandom(8), templ, custID, (String) DelT.getSelectedItem(),
                             tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
+                    ExistingOrder existingOrder = new ExistingOrder(temporder.getOrderid(),templ, custID, (String) DelT.getSelectedItem(),
+                            tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD,"Vancouver",
+                            "New order",sqlDate,"new order");
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
+                    temp.addEOrder(existingOrder);
 
 
                 } catch (Exception ex) {
