@@ -44,7 +44,6 @@ public class CreateOrder {
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
             ps.setLong(3,o.getCompanyID());
-            System.out.println(o.getCompanyID());
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
