@@ -41,16 +41,19 @@ public class CreateOrder {
 
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
-            ps.setString(2,o.getSenderName());
-            ps.setString(3,o.getSenderAddress());
+            ps.setLong(2,o.getCustID());
+            ps.setLong(3,o.getCompanyID());
+            ps.setString(4,o.getType());
+            ps.setString(5,o.getSenderName());
+            ps.setString(6,o.getSenderAddress());
 
-            ps.setString(4,o.getReceiverAddress());
-            ps.setString(5,o.getReceiverName());
-            ps.setDouble(6,o.getPrice());
-            ps.setDate(7,o.getDateCreated());
-            ps.setDate(8,o.getExpectedArrival());
+            ps.setString(7,o.getReceiverAddress());
+            ps.setString(8,o.getReceiverName());
+            ps.setDouble(9,o.getPrice());
+            ps.setDate(10,o.getDateCreated());
+            ps.setDate(11,o.getExpectedArrival());
 
 
             ps.executeUpdate();
@@ -88,6 +91,35 @@ public class CreateOrder {
         finally {
             assert stmt != null;
             stmt.close();
+        }
+    }
+
+    public void addEOrder(ExistingOrder o) throws Exception {
+
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement("INSERT INTO EXISTINGORDERS VALUES (?,?,?,?,?,?)");
+            ps.setLong(1,o.getOrderid());
+            ps.setString(2,o.getLocation());
+            ps.setString(3,o.getStatus());
+
+            ps.setString(4,o.getReceiverAddress());
+            ps.setDate(5,o.getDateCreated());
+            ps.setDate(6,o.getExpectedArrival());
+
+
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+        } catch (SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+            try {
+                // undo the insert
+                con.rollback();
+            } catch (SQLException ex2) {
+                System.out.println("Message: " + ex2.getMessage());
+                System.exit(-1);
+            }
         }
     }
 
@@ -332,6 +364,9 @@ public class CreateOrder {
     //helper function that return a single column for getAllOrders
     private static Order getOrder(ResultSet rs) throws SQLException {
         Long orderid =Long.parseLong(rs.getString("ORDERID")) ;
+        Long compID = Long.parseLong(rs.getString("COMPANYID")) ;
+        Long custID = Long.parseLong(rs.getString("CUSTOMERID")) ;
+        String type = rs.getString("TYPENAME");
         String senderAddress = rs.getString("SENDERADDRESS");
         String senderName = rs.getString("SENDERNAME");
         String receiverAddress = rs.getString("RECEIVERADDRESS");
@@ -343,11 +378,14 @@ public class CreateOrder {
 
 
 
-        return new Order(orderid, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival);
+        return new Order(orderid,compID,custID,type, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival);
     }
 
     private static ExistingOrder getEOrder(ResultSet rs) throws SQLException {
         Long orderid =Long.parseLong(rs.getString("ORDERID")) ;
+        Long compID = Long.parseLong(rs.getString("COMPANYID")) ;
+        Long custID = Long.parseLong(rs.getString("CUSTOMERID")) ;
+        String type = rs.getString("TYPENAME");
         String senderAddress = rs.getString("SENDERADDRESS");
         String senderName = rs.getString("SENDERNAME");
         String receiverAddress = rs.getString("RECEIVERADDRESS");
@@ -360,7 +398,7 @@ public class CreateOrder {
 
 
 
-        return new ExistingOrder(orderid, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival,location,status);
+        return new ExistingOrder(orderid,compID,custID, type, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival,location,status);
     }
 
 
