@@ -1,4 +1,6 @@
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CreateOrder {
@@ -70,7 +72,7 @@ public class CreateOrder {
         }
     }
 
-    public  List<Order> selectOrder(String oID) throws Exception {
+    public List<Order> selectOrder(String oID) throws Exception {
 
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -291,7 +293,7 @@ public class CreateOrder {
         ResultSet rs;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2");
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2)");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Order tempOrder = getOrder(rs);
@@ -333,7 +335,30 @@ public class CreateOrder {
             stmt.close();
         }
     }
-    
+
+    // view orders only under specific customerID
+   public List<Order> viewOrder(int customerID) throws Exception{
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE CUSTOMERID = ?");
+            stmt.setInt(1,customerID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+                }
+
+                return orderslist;
+            }
+            finally {
+            assert stmt != null;
+            stmt.close();
+            }
+    }
+
     public void deleteOrder(long orderId) throws SQLException{
         PreparedStatement ps = null;
         try {

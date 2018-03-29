@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70ae5a3a-e8fc-4423-80c8-0cf60756c910" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/CustomerAddUI.form" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/CustomerUpdateGUI.form" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/testbutton.form" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/CreateOrder.java" afterPath="$PROJECT_DIR$/CreateOrder.java" />
-      <change beforePath="$PROJECT_DIR$/CustomerAddUI.java" afterPath="$PROJECT_DIR$/CustomerAddUI.java" />
-      <change beforePath="$PROJECT_DIR$/CustomerUpdateGUI.java" afterPath="$PROJECT_DIR$/CustomerUpdateGUI.java" />
-      <change beforePath="$PROJECT_DIR$/MainGUI.java" afterPath="$PROJECT_DIR$/MainGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,42 +42,40 @@
       <file leaf-file-name="CustomerAddUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CustomerAddUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="-161">
+              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="initializer##0;class#CustomerAddUI#0" expanded="true" />
-                <element signature="e#10562#10563#0" expanded="true" />
-                <element signature="e#10590#10591#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateOrder.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateOrder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CreateOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="343" column="26" lean-forward="false" selection-start-line="343" selection-start-column="26" selection-end-line="343" selection-end-column="26" />
+            <state relative-caret-position="188">
+              <caret line="338" column="4" lean-forward="false" selection-start-line="338" selection-start-column="4" selection-end-line="338" selection-end-column="4" />
               <folding>
-                <marker date="1522343381767" expanded="true" signature="1042:1091" ph="INSERT INTO ORDERS... " />
-                <marker date="1522343381767" expanded="true" signature="2319:2357" ph="select * fro... ORDERS" />
-                <marker date="1522343381767" expanded="true" signature="2853:2900" ph="INSERT INTO EXISTINGORDERS... " />
-                <marker date="1522343381767" expanded="true" signature="3857:3923" ph="select * fro... ORDERS" />
-                <marker date="1522343381767" expanded="true" signature="4473:4536" ph="UPDATE ExistingOrders... " />
-                <marker date="1522343381767" expanded="true" signature="5248:5298" ph="UPDATE Orders... " />
-                <marker date="1522343381767" expanded="true" signature="6061:6114" ph="UPDATE Orders... " />
-                <marker date="1522343381767" expanded="true" signature="6827:6879" ph="UPDATE Orders... " />
-                <marker date="1522343381767" expanded="true" signature="7595:7650" ph="UPDATE Orders... " />
-                <marker date="1522343381767" expanded="true" signature="8343:8388" ph="UPDATE Orders... " />
-                <marker date="1522343381767" expanded="true" signature="9141:9212" ph="SELECT * FRO... orders" />
-                <marker date="1522343381767" expanded="true" signature="9177:9212" ph="SELECT AVG(o... orders" />
-                <marker date="1522343381767" expanded="true" signature="9765:10139" ph="SELECT t.com... companyid" />
-                <marker date="1522343381767" expanded="true" signature="9826:9929" ph="SELECT o.com... " />
-                <marker date="1522343381767" expanded="true" signature="10722:10758" ph="DELETE FROM orders... " />
-                <marker date="1522343381767" expanded="true" signature="11289:11309" ph="select ? fro... Orders" />
-                <marker date="1522343381767" expanded="true" signature="11968:12176" ph="select p.pac... packageContained" />
-                <marker date="1522343381767" expanded="true" signature="13025:13045" ph="select * fro... ORDERS" />
+                <element signature="imports" expanded="true" />
+                <marker date="1522348325414" expanded="true" signature="1043:1092" ph="INSERT INTO ORDERS... " />
+                <marker date="1522348325414" expanded="true" signature="2320:2358" ph="select * fro... ORDERS" />
+                <marker date="1522348325414" expanded="true" signature="2854:2901" ph="INSERT INTO EXISTINGORDERS... " />
+                <marker date="1522348325414" expanded="true" signature="3859:3925" ph="select * fro... ORDERS" />
+                <marker date="1522348325414" expanded="true" signature="4475:4538" ph="UPDATE ExistingOrders... " />
+                <marker date="1522348325414" expanded="true" signature="5250:5300" ph="UPDATE Orders... " />
+                <marker date="1522348325414" expanded="true" signature="6063:6116" ph="UPDATE Orders... " />
+                <marker date="1522348325414" expanded="true" signature="6829:6881" ph="UPDATE Orders... " />
+                <marker date="1522348325414" expanded="true" signature="7597:7652" ph="UPDATE Orders... " />
+                <marker date="1522348325414" expanded="true" signature="8345:8390" ph="UPDATE Orders... " />
+                <marker date="1522348325414" expanded="true" signature="9142:9214" ph="SELECT * FRO... orders" />
+                <marker date="1522348325414" expanded="true" signature="9178:9213" ph="SELECT AVG(o... orders" />
+                <marker date="1522348325414" expanded="true" signature="9767:10141" ph="SELECT t.com... companyid" />
+                <marker date="1522348325414" expanded="true" signature="9828:9931" ph="SELECT o.com... " />
+                <marker date="1522348325414" expanded="true" signature="10651:10687" ph="DELETE FROM orders... " />
+                <marker date="1522348325414" expanded="true" signature="11218:11238" ph="select ? fro... Orders" />
+                <marker date="1522348325414" expanded="true" signature="11897:12105" ph="select p.pac... packageContained" />
+                <marker date="1522348325414" expanded="true" signature="12954:12974" ph="select * fro... ORDERS" />
               </folding>
             </state>
           </provider>
@@ -91,8 +84,8 @@
       <file leaf-file-name="LoginGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LoginGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1702">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="-1610">
+              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -108,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3657">
+            <state relative-caret-position="2415">
               <caret line="165" column="27" lean-forward="false" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
               <folding />
             </state>
@@ -141,8 +134,8 @@
       <file leaf-file-name="MainGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="368">
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -245,10 +238,6 @@
               <item name="cs304_packageManagement" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs304_packageManagement" type="462c0819:PsiDirectoryNode" />
               <item name="MainGUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="cs304_packageManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -416,7 +405,7 @@
       <option name="presentableId" value="Default" />
       <updated>1522284855161</updated>
       <workItem from="1522284859594" duration="4727000" />
-      <workItem from="1522299235287" duration="11986000" />
+      <workItem from="1522299235287" duration="13704000" />
     </task>
     <task id="LOCAL-00001" summary="little fixes">
       <created>1522287138233</created>
@@ -443,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16713000" />
+    <option name="totallyTimeSpent" value="18431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -457,9 +446,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.50214595" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291714" sideWeight="0.49785408" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.49785408" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13251074" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -499,9 +488,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#CustomerAddUI#0" expanded="true" />
-            <element signature="e#10562#10563#0" expanded="true" />
-            <element signature="e#10590#10591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,24 +497,25 @@
         <state relative-caret-position="1242">
           <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <marker date="1522343381767" expanded="true" signature="1042:1091" ph="INSERT INTO ORDERS... " />
-            <marker date="1522343381767" expanded="true" signature="2319:2357" ph="select * fro... ORDERS" />
-            <marker date="1522343381767" expanded="true" signature="2853:2900" ph="INSERT INTO EXISTINGORDERS... " />
-            <marker date="1522343381767" expanded="true" signature="3857:3923" ph="select * fro... ORDERS" />
-            <marker date="1522343381767" expanded="true" signature="4473:4536" ph="UPDATE ExistingOrders... " />
-            <marker date="1522343381767" expanded="true" signature="5248:5298" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="6061:6114" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="6827:6879" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="7595:7650" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="8343:8388" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="9141:9212" ph="SELECT * FRO... orders" />
-            <marker date="1522343381767" expanded="true" signature="9177:9212" ph="SELECT AVG(o... orders" />
-            <marker date="1522343381767" expanded="true" signature="9765:10139" ph="SELECT t.com... companyid" />
-            <marker date="1522343381767" expanded="true" signature="9826:9929" ph="SELECT o.com... " />
-            <marker date="1522343381767" expanded="true" signature="10722:10758" ph="DELETE FROM orders... " />
-            <marker date="1522343381767" expanded="true" signature="11289:11309" ph="select ? fro... Orders" />
-            <marker date="1522343381767" expanded="true" signature="11968:12176" ph="select p.pac... packageContained" />
-            <marker date="1522343381767" expanded="true" signature="13025:13045" ph="select * fro... ORDERS" />
+            <element signature="imports" expanded="true" />
+            <marker date="1522348325414" expanded="true" signature="1043:1092" ph="INSERT INTO ORDERS... " />
+            <marker date="1522348325414" expanded="true" signature="2320:2358" ph="select * fro... ORDERS" />
+            <marker date="1522348325414" expanded="true" signature="2854:2901" ph="INSERT INTO EXISTINGORDERS... " />
+            <marker date="1522348325414" expanded="true" signature="3859:3925" ph="select * fro... ORDERS" />
+            <marker date="1522348325414" expanded="true" signature="4475:4538" ph="UPDATE ExistingOrders... " />
+            <marker date="1522348325414" expanded="true" signature="5250:5300" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="6063:6116" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="6829:6881" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="7597:7652" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="8345:8390" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="9142:9214" ph="SELECT * FRO... orders" />
+            <marker date="1522348325414" expanded="true" signature="9178:9213" ph="SELECT AVG(o... orders" />
+            <marker date="1522348325414" expanded="true" signature="9767:10141" ph="SELECT t.com... companyid" />
+            <marker date="1522348325414" expanded="true" signature="9828:9931" ph="SELECT o.com... " />
+            <marker date="1522348325414" expanded="true" signature="10651:10687" ph="DELETE FROM orders... " />
+            <marker date="1522348325414" expanded="true" signature="11218:11238" ph="select ? fro... Orders" />
+            <marker date="1522348325414" expanded="true" signature="11897:12105" ph="select p.pac... packageContained" />
+            <marker date="1522348325414" expanded="true" signature="12954:12974" ph="select * fro... ORDERS" />
           </folding>
         </state>
       </provider>
@@ -729,16 +716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinishedOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="368">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -752,57 +731,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CustomerAddUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        <state relative-caret-position="-161">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#CustomerAddUI#0" expanded="true" />
-            <element signature="e#10562#10563#0" expanded="true" />
-            <element signature="e#10590#10591#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinishedOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="165" column="27" lean-forward="false" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoginGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1702">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="-1610">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CreateOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="343" column="26" lean-forward="false" selection-start-line="343" selection-start-column="26" selection-end-line="343" selection-end-column="26" />
+        <state relative-caret-position="188">
+          <caret line="338" column="4" lean-forward="false" selection-start-line="338" selection-start-column="4" selection-end-line="338" selection-end-column="4" />
           <folding>
-            <marker date="1522343381767" expanded="true" signature="1042:1091" ph="INSERT INTO ORDERS... " />
-            <marker date="1522343381767" expanded="true" signature="2319:2357" ph="select * fro... ORDERS" />
-            <marker date="1522343381767" expanded="true" signature="2853:2900" ph="INSERT INTO EXISTINGORDERS... " />
-            <marker date="1522343381767" expanded="true" signature="3857:3923" ph="select * fro... ORDERS" />
-            <marker date="1522343381767" expanded="true" signature="4473:4536" ph="UPDATE ExistingOrders... " />
-            <marker date="1522343381767" expanded="true" signature="5248:5298" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="6061:6114" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="6827:6879" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="7595:7650" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="8343:8388" ph="UPDATE Orders... " />
-            <marker date="1522343381767" expanded="true" signature="9141:9212" ph="SELECT * FRO... orders" />
-            <marker date="1522343381767" expanded="true" signature="9177:9212" ph="SELECT AVG(o... orders" />
-            <marker date="1522343381767" expanded="true" signature="9765:10139" ph="SELECT t.com... companyid" />
-            <marker date="1522343381767" expanded="true" signature="9826:9929" ph="SELECT o.com... " />
-            <marker date="1522343381767" expanded="true" signature="10722:10758" ph="DELETE FROM orders... " />
-            <marker date="1522343381767" expanded="true" signature="11289:11309" ph="select ? fro... Orders" />
-            <marker date="1522343381767" expanded="true" signature="11968:12176" ph="select p.pac... packageContained" />
-            <marker date="1522343381767" expanded="true" signature="13025:13045" ph="select * fro... ORDERS" />
+            <element signature="imports" expanded="true" />
+            <marker date="1522348325414" expanded="true" signature="1043:1092" ph="INSERT INTO ORDERS... " />
+            <marker date="1522348325414" expanded="true" signature="2320:2358" ph="select * fro... ORDERS" />
+            <marker date="1522348325414" expanded="true" signature="2854:2901" ph="INSERT INTO EXISTINGORDERS... " />
+            <marker date="1522348325414" expanded="true" signature="3859:3925" ph="select * fro... ORDERS" />
+            <marker date="1522348325414" expanded="true" signature="4475:4538" ph="UPDATE ExistingOrders... " />
+            <marker date="1522348325414" expanded="true" signature="5250:5300" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="6063:6116" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="6829:6881" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="7597:7652" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="8345:8390" ph="UPDATE Orders... " />
+            <marker date="1522348325414" expanded="true" signature="9142:9214" ph="SELECT * FRO... orders" />
+            <marker date="1522348325414" expanded="true" signature="9178:9213" ph="SELECT AVG(o... orders" />
+            <marker date="1522348325414" expanded="true" signature="9767:10141" ph="SELECT t.com... companyid" />
+            <marker date="1522348325414" expanded="true" signature="9828:9931" ph="SELECT o.com... " />
+            <marker date="1522348325414" expanded="true" signature="10651:10687" ph="DELETE FROM orders... " />
+            <marker date="1522348325414" expanded="true" signature="11218:11238" ph="select ? fro... Orders" />
+            <marker date="1522348325414" expanded="true" signature="11897:12105" ph="select p.pac... packageContained" />
+            <marker date="1522348325414" expanded="true" signature="12954:12974" ph="select * fro... ORDERS" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3657">
-          <caret line="165" column="27" lean-forward="false" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
