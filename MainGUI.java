@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +28,7 @@ public class MainGUI extends JFrame {
     private JButton maxPriceButton;
     private JButton returnToLogInButton;
     private int row = -1;
+    private long custID;
     protected CreateOrder temp = new CreateOrder();
 
 
@@ -46,7 +46,9 @@ public class MainGUI extends JFrame {
         AddB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CustomerAddUI.main(null);
+                String[] ag = new String[1];
+                ag[0] = Long.toString(custID);
+                CustomerAddUI.main(ag);
             }
         });
         UpdateB.addActionListener(new ActionListener() {
@@ -157,6 +159,11 @@ public class MainGUI extends JFrame {
             public void run() {
                 try {
                     MainGUI frame = new MainGUI();
+                    if (args.length == 1) {
+                        frame.custID = Long.parseLong(args[0]);
+                    }
+                    else
+                        frame.custID = 21367537;
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();

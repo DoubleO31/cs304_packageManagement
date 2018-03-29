@@ -8,9 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
-public class CustomerAddUI extends MainGUI {
+public class CustomerAddUI {
     private JTextField SenN;
     private JTextField RecA;
     private JTextField SenA;
@@ -23,11 +22,7 @@ public class CustomerAddUI extends MainGUI {
     private JPanel MainP;
     private JComboBox DeliveryCbox;
 
-    public CustomerAddUI() {
-        setTitle("CustomerAddOrder");
-        setContentPane(MainP);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(400, 250);
+    public CustomerAddUI(long custID) {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,15 +54,10 @@ public class CustomerAddUI extends MainGUI {
 
                     }
 
-
-
-                    Order temporder = new Order(generateRandom(8), templ, 0, (String) DelT.getSelectedItem(),
+                    Order temporder = new Order(MainGUI.generateRandom(8), templ, custID, (String) DelT.getSelectedItem(),
                             tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
+                    CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
-
-                    setTable1();
-                    dispose();
-
 
 
                 } catch (Exception ex) {
@@ -86,18 +76,12 @@ public class CustomerAddUI extends MainGUI {
     }
 
     public static void main(String[] args) {
-
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CustomerAddUI frame = new CustomerAddUI();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
+        JFrame jf = new JFrame("CustomerAddOrder");
+        long cust = Long.parseLong(args[0]);
+        jf.setContentPane(new CustomerAddUI(cust).MainP);
+        jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jf.setSize(400, 250);
+        jf.setVisible(true);
     }
 
     {
@@ -175,14 +159,12 @@ public class CustomerAddUI extends MainGUI {
         final JLabel label7 = new JLabel();
         label7.setText("Delivery Company");
         WestP.add(label7, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        final JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        MainP.add(panel2, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        MainP.add(panel1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         updateButton = new JButton();
         updateButton.setText("Update");
-        panel2.add(updateButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel1.add(updateButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
@@ -192,3 +174,4 @@ public class CustomerAddUI extends MainGUI {
         return MainP;
     }
 }
+
