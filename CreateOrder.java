@@ -103,9 +103,9 @@ public class CreateOrder {
             ps.setString(2,o.getLocation());
             ps.setString(3,o.getStatus());
 
-            ps.setString(4,o.getReceiverAddress());
-            ps.setDate(5,o.getDateCreated());
-            ps.setDate(6,o.getExpectedArrival());
+            ps.setLong(4,o.getCompanyID());
+            ps.setDate(5,o.getDateUpdated());
+            ps.setString(6,o.getInstance());
 
 
             ps.executeUpdate();
@@ -395,10 +395,12 @@ public class CreateOrder {
         java.sql.Date expectedArrival = rs.getDate("EXPECTEDARRIVAL");
         String status = rs.getString("STATUS");
         String location = rs.getString("CURRENTLOCATION");
+        java.sql.Date dateUpdated = rs.getDate("dateupdated");
+        String instance = rs.getString("INSTANCE");
 
 
-
-        return new ExistingOrder(orderid,compID,custID, type, senderAddress, senderName, receiverAddress, receiverName, price, dateCreated, expectedArrival,location,status);
+        return new ExistingOrder(orderid,compID,custID, type, senderAddress, senderName, receiverAddress, receiverName,
+                price, dateCreated, expectedArrival,location,status,dateUpdated,instance);
     }
 
 
