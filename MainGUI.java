@@ -28,7 +28,7 @@ public class MainGUI {
     private JTable table1;
     private JScrollPane SouthS;
     private JTextField Package;
-    private int row;
+    private int row = -1;
     CreateOrder temp = new CreateOrder();
 
 
