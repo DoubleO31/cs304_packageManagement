@@ -295,6 +295,12 @@ public class CreateOrder {
             ps.executeUpdate();
             con.commit();
             ps.close();
+            ps = con.prepareStatement("DELETE FROM FinishedOrders WHERE orderID = ?");
+            ps.setLong(1,o.getOrderid());
+
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
         }catch (SQLException ex) {
             System.out.println("Message: " + ex.getMessage());
             try {
