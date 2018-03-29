@@ -130,12 +130,14 @@ public class LoginGUI implements ActionListener {
             // if the username and password are valid,
             // remove the login window and display a text menu
             mainFrame.dispose();
+            EmployeeGUI.main(null);
         }
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 3 )
         {
             // if the username and password are valid,
             // remove the login window and display a text menu
             mainFrame.dispose();
+            DeliveryCompGUI.main(null);
         }
         else
         {
