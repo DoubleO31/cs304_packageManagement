@@ -106,7 +106,7 @@ public class LoginGUI implements ActionListener {
     {
         if (custCheck(username) & password.equals("123456")){return 1;}
         else if (username.equals("employee")& password.equals("123456")){return 2;}
-        else if (username.equals("delivery")& password.equals("123456")){return 3;}
+        else if (deliCheck(username) & password.equals("123456")){return 3;}
 
         return 0;
     }
@@ -115,6 +115,10 @@ public class LoginGUI implements ActionListener {
         return  (user.equals("21367537") || user.equals("57384360")|| user.equals("34348957")
         || user.equals("45221778") || user.equals("77654321"));
     }
+
+    private boolean deliCheck(String user) {
+        return  (user.equals("94237") || user.equals("65789")|| user.equals("34786")
+                || user.equals("98765") || user.equals("34322"));}
 
 
     /*
@@ -143,7 +147,9 @@ public class LoginGUI implements ActionListener {
             // if the username and password are valid,
             // remove the login window and display a text menu
             mainFrame.dispose();
-            DeliveryCompGUI.main(null);
+            String[] a = new String[1];
+            a[0] = usernameField.getText();
+            DeliveryCompGUI.main(a);
         }
         else
         {
