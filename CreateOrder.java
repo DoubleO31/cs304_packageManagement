@@ -10,7 +10,7 @@ import java.util.*;
 
 public class CreateOrder {
     private Connection con;
-    private long CustomerID = 21363537;
+    private long CustomerID = 21367537;
 
 
     public CreateOrder(){
@@ -57,7 +57,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setDate(11,o.getDateCreated());
+            ps.setNull(11, Types.DATE);
 
             ps.executeUpdate();
 
@@ -342,7 +342,7 @@ public class CreateOrder {
         List<Packages> packlist = new ArrayList<>();
 
         try{
-            stmt = con.prepareStatement("select p.packageNo, p.decription, p.weight " +
+            stmt = con.prepareStatement("select p.packageNo, p.description, p.weight " +
                     " From packageContained p" +
                     " INNER JOIN orders o ON p.orderID = o.orderID" +
                     " WHERE o.orderID = ?");

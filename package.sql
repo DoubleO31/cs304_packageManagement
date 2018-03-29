@@ -74,7 +74,7 @@ receiverAddress	VARCHAR(50) not null,
 receiverName		VARCHAR(50) not null,       
 price			NUMBER not null,
 dateCreated		DATE not null,
-expectedArrival	DATE not null,	
+expectedArrival	DATE,	
 primary key (orderID),
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE,

@@ -106,11 +106,43 @@ public class MainGUI {
                     row = -1;
             }
         });
+        View.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    List<Packages> Packageslist = null;
+
+                    String oId = Package.getText();
+
+                    if (oId != null && oId.trim().length() > 0) {
+
+                        Packageslist = MainGUI.this.temp.getPackages(Long.parseLong(oId.trim()));
+                        PackageTableModel model = new PackageTableModel(Packageslist);
+                        table1.setModel(model);
+                        }
+
+
+
+
+
+
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
+
+            }
+        });
     }
 
-    public void setTable1(OrderTableModel m) {
+/*    public void setTable1(OrderTableModel m) {
         table1.setModel(m);
     }
+
+    public void setTable1(OrderTableModel m){
+        table1.setModel(m);
+    }*/
 
     public static void main(String[] args) {
         JFrame jf = new JFrame();
