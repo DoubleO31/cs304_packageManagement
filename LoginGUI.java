@@ -104,10 +104,15 @@ public class LoginGUI implements ActionListener {
      */
     private int connect(String username, String password)
     {
-        if (username.equals("customer") & password.equals("123456")){return 1;}
+        if (custCheck(username) & password.equals("123456")){return 1;}
         if (username.equals("employee")& password.equals("123456")){return 2;}
         if (username.equals("delivery")& password.equals("123456")){return 3;}
         return 0;
+    }
+    
+    private boolean custCheck(String user) {
+        return  (user.equals("21367537") || user.equals("57384360")|| user.equals("34348957")
+        || user.equals("45221778") || user.equals("77654321"));
     }
 
 
@@ -122,7 +127,7 @@ public class LoginGUI implements ActionListener {
             // remove the login window and display a text menu
             mainFrame.dispose();
             String[] a = new String[1];
-            a[0] = "57384360";
+            a[0] = usernameField.getText();
             MainGUI.main(a);
         }
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 2 )
