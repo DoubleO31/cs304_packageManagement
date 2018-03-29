@@ -1,10 +1,9 @@
 // for the login window
+//import sun.applet.Main;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 public class LoginGUI implements ActionListener {
 
     // user is allowed 3 login attempts
@@ -122,7 +121,9 @@ public class LoginGUI implements ActionListener {
             // if the username and password are valid,
             // remove the login window and display a text menu
             mainFrame.dispose();
-            MainGUI.main(null);
+            String[] a = new String[1];
+            a[0] = "57384360";
+            MainGUI.main(a);
         }
         if ( connect(usernameField.getText(), String.valueOf(passwordField.getPassword())) == 2 )
         {

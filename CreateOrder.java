@@ -1,7 +1,4 @@
-
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.*;
 
 
 public class CreateOrder {
@@ -26,8 +23,7 @@ public class CreateOrder {
 
         try
         {
-
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_a6o0b","a41533143");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -44,18 +40,16 @@ public class CreateOrder {
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
-            ps.setLong(2,CustomerID);
+            ps.setLong(2,o.getCustID());
             ps.setLong(3,o.getCompanyID());
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
-
             ps.setString(7,o.getReceiverAddress());
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
             ps.setDate(11,o.getExpectedArrival());
-
 
             ps.executeUpdate();
 
@@ -107,6 +101,7 @@ public class CreateOrder {
             ps.setLong(1,o.getOrderid());
             ps.setString(2,o.getLocation());
             ps.setString(3,o.getStatus());
+
             ps.setLong(4,o.getCompanyID());
             ps.setDate(5,o.getDateUpdated());
             ps.setString(6,o.getInstance());
@@ -290,14 +285,13 @@ public class CreateOrder {
         }
     }
 
-
     public  List<Order> beyondAvg() throws Exception {
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2)");
+            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Order tempOrder = getOrder(rs);
@@ -339,29 +333,7 @@ public class CreateOrder {
             stmt.close();
         }
     }
-
-    // view orders only under specific customerID
-    public List<Order> viewOrder(int customerID) throws Exception{
-        List<Order> orderslist = new ArrayList<>();
-        PreparedStatement stmt = null;
-        ResultSet rs;
-        try {
-            stmt = con.prepareStatement("SELECT * FROM orders WHERE CUSTOMERID = ?");
-            stmt.setInt(1,customerID);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                Order tempOrder = getOrder(rs);
-                orderslist.add(tempOrder);
-            }
-
-            return orderslist;
-        }
-        finally {
-            assert stmt != null;
-            stmt.close();
-        }
-    }
-
+    
     public void deleteOrder(long orderId) throws SQLException{
         PreparedStatement ps = null;
         try {
