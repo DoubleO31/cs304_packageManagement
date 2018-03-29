@@ -2,12 +2,10 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import java.util.List;
+import java.util.GregorianCalendar;
 
 public class CustomerAddUI {
     private JTextField SenN;
@@ -34,8 +32,11 @@ public class CustomerAddUI {
                     String tempprice = price.getText();
                     Date tempdate = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
+                    Date arr = new GregorianCalendar(2018,3,15).getTime();
+                    java.sql.Date arrD = new java.sql.Date(arr.getTime());
 
-                    Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(), tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, null);
+                    Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(),
+                            tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
 
