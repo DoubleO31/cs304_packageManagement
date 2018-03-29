@@ -29,37 +29,37 @@ public class CustomerUpdateGUI {
                 try {
                     //System.out.println("reached 30");
                     List<ExistingOrder> orders;
-                    if (OrderN.getText() != null && OrderN.getText().trim().length()>0) {
-                    long oID =Long.parseLong(OrderN.getText()) ;
-                    String sendName = SenN.getText();
-                    String sendAddr = SenA.getText();
-                    String ReceName = RecN.getText();
-                    String ReceAddr = RecA.getText();
+                    if (OrderN.getText() != null && OrderN.getText().trim().length() > 0) {
+                        long oID = Long.parseLong(OrderN.getText());
+                        String sendName = SenN.getText();
+                        String sendAddr = SenA.getText();
+                        String ReceName = RecN.getText();
+                        String ReceAddr = RecA.getText();
 
                         //System.out.println("reached 39");
                         orders = CustomerUpdateGUI.this.temp.selectEOrder(oID);
-                        if (orders.isEmpty()!= true) {
+                        if (orders.isEmpty() != true) {
                             //System.out.println("reached 42");
                             if (sendName != null && sendName.trim().length() > 0) {
-                                CustomerUpdateGUI.this.temp.updateOrderSenderName(orders.get(0),sendName);
+                                CustomerUpdateGUI.this.temp.updateOrderSenderName(orders.get(0), sendName);
                             }
-                            if (sendAddr != null && sendAddr.trim().length()>0) {
-                                CustomerUpdateGUI.this.temp.updateOrderSenderAddr(orders.get(0),sendAddr);
+                            if (sendAddr != null && sendAddr.trim().length() > 0) {
+                                CustomerUpdateGUI.this.temp.updateOrderSenderAddr(orders.get(0), sendAddr);
                             }
-                            if (ReceName != null && ReceName.trim().length()>0) {
-                                CustomerUpdateGUI.this.temp.updateOrderRecevName(orders.get(0),ReceName);
+                            if (ReceName != null && ReceName.trim().length() > 0) {
+                                CustomerUpdateGUI.this.temp.updateOrderRecevName(orders.get(0), ReceName);
                             }
-                            if (ReceAddr != null && ReceAddr.trim().length()>0) {
-                                CustomerUpdateGUI.this.temp.updateOrderRecevAddr(orders.get(0),ReceAddr);
+                            if (ReceAddr != null && ReceAddr.trim().length() > 0) {
+                                CustomerUpdateGUI.this.temp.updateOrderRecevAddr(orders.get(0), ReceAddr);
                             }
-                            if (FinalPrice.getText()!=null && FinalPrice.getText().trim().length()>0) {
-                                float price =Float.parseFloat(FinalPrice.getText());
-                                CustomerUpdateGUI.this.temp.updatePrice(orders.get(0),price);
+                            if (FinalPrice.getText() != null && FinalPrice.getText().trim().length() > 0) {
+                                float price = Float.parseFloat(FinalPrice.getText());
+                                CustomerUpdateGUI.this.temp.updatePrice(orders.get(0), price);
                             }
                         }
                     }
-                }catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                     System.out.println("Message:?? " + ex.getMessage());
                 }
             }
@@ -144,5 +144,4 @@ public class CustomerUpdateGUI {
     public JComponent $$$getRootComponent$$$() {
         return MainP;
     }
-
 }

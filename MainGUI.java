@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class MainGUI {
+public class MainGUI extends JFrame {
     private JPanel panel1;
     private JPanel NorthP;
     private JLabel SearchL;
@@ -22,19 +22,21 @@ public class MainGUI {
     private JButton UpdateB;
     private JButton DeleteB;
     private JButton View;
-    private JLabel Filter;
-    private JComboBox FilterC;
-    private JComboBox comboBox2;
     private JButton SumB;
-    private JLabel GroupL;
     private JTable table1;
     private JScrollPane SouthS;
     private JTextField Package;
+    private JButton maxPriceButton;
+    private JButton returnToLogInButton;
     private int row = -1;
     CreateOrder temp = new CreateOrder();
 
 
     public MainGUI() {
+        setContentPane(panel1);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(1500, 500);
+        setVisible(true);
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -85,25 +87,25 @@ public class MainGUI {
         DeleteB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    if(row != -1){
-                        long orderID = (long)table1.getModel().getValueAt(row,0);
-                        try {
-                            temp.deleteOrder(orderID);
-                            List<Order> orderslist;
+                if (row != -1) {
+                    long orderID = (long) table1.getModel().getValueAt(row, 0);
+                    try {
+                        temp.deleteOrder(orderID);
+                        List<Order> orderslist;
 
-                            orderslist = MainGUI.this.temp.getAllOrders();
+                        orderslist = MainGUI.this.temp.getAllOrders();
 
-                            OrderTableModel model = new OrderTableModel(orderslist);
+                        OrderTableModel model = new OrderTableModel(orderslist);
 
-                            table1.setModel(model);
+                        table1.setModel(model);
 
 
-                        }catch (Exception ex) {
-                            JOptionPane.showMessageDialog(null, ex.getMessage());
-                            System.out.println("Message:?? " + ex.getMessage());
-                        }
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                        System.out.println("Message:?? " + ex.getMessage());
                     }
-                    row = -1;
+                }
+                row = -1;
             }
         });
         View.addActionListener(new ActionListener() {
@@ -119,12 +121,7 @@ public class MainGUI {
                         Packageslist = MainGUI.this.temp.getPackages(Long.parseLong(oId.trim()));
                         PackageTableModel model = new PackageTableModel(Packageslist);
                         table1.setModel(model);
-                        }
-
-
-
-
-
+                    }
 
 
                 } catch (Exception ex) {
@@ -132,6 +129,13 @@ public class MainGUI {
                     System.out.println("Message:?? " + ex.getMessage());
                 }
 
+            }
+        });
+        returnToLogInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                LoginGUI.main(null);
             }
         });
     }
@@ -145,11 +149,17 @@ public class MainGUI {
     }*/
 
     public static void main(String[] args) {
-        JFrame jf = new JFrame();
-        jf.setContentPane(new MainGUI().panel1);
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setSize(1500, 500);
-        jf.setVisible(true);
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MainGUI frame = new MainGUI();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     //generate a random number or orderID from https://stackoverflow.com/questions/4655931/12-digit-unique-random-number-generation-in-java
@@ -182,7 +192,7 @@ public class MainGUI {
         panel1 = new JPanel();
         panel1.setLayout(new BorderLayout(0, 0));
         NorthP = new JPanel();
-        NorthP.setLayout(new GridLayoutManager(2, 10, new Insets(0, 0, 0, 0), -1, -1));
+        NorthP.setLayout(new GridLayoutManager(2, 23, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(NorthP, BorderLayout.NORTH);
         SearchL = new JLabel();
         SearchL.setText("Search by Order ID");
@@ -195,33 +205,29 @@ public class MainGUI {
         View = new JButton();
         View.setText("Check Package");
         NorthP.add(View, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        Filter = new JLabel();
-        Filter.setText("Filter");
-        NorthP.add(Filter, new GridConstraints(1, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        FilterC = new JComboBox();
-        NorthP.add(FilterC, new GridConstraints(1, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        comboBox2 = new JComboBox();
-        NorthP.add(comboBox2, new GridConstraints(1, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        SumB = new JButton();
-        SumB.setText("SumPrice");
-        NorthP.add(SumB, new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        GroupL = new JLabel();
-        GroupL.setText("Group by");
-        NorthP.add(GroupL, new GridConstraints(1, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Check package by Order ID");
         NorthP.add(label1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         Package = new JTextField();
         NorthP.add(Package, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 1, false));
-        DeleteB = new JButton();
-        DeleteB.setText("Delete Order");
-        NorthP.add(DeleteB, new GridConstraints(0, 7, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        UpdateB = new JButton();
-        UpdateB.setText("Update Order");
-        NorthP.add(UpdateB, new GridConstraints(0, 5, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        maxPriceButton = new JButton();
+        maxPriceButton.setText("Max Price");
+        NorthP.add(maxPriceButton, new GridConstraints(1, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         AddB = new JButton();
         AddB.setText("Add Order");
-        NorthP.add(AddB, new GridConstraints(0, 3, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        NorthP.add(AddB, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        SumB = new JButton();
+        SumB.setText("SumPrice");
+        NorthP.add(SumB, new GridConstraints(1, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        UpdateB = new JButton();
+        UpdateB.setText("Update Order");
+        NorthP.add(UpdateB, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        DeleteB = new JButton();
+        DeleteB.setText("Delete Order");
+        NorthP.add(DeleteB, new GridConstraints(0, 5, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        returnToLogInButton = new JButton();
+        returnToLogInButton.setText("Return to Log in");
+        NorthP.add(returnToLogInButton, new GridConstraints(1, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         SouthS = new JScrollPane();
         panel1.add(SouthS, BorderLayout.SOUTH);
         table1 = new JTable();

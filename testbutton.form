@@ -2,12 +2,12 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainGUI">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="385" y="246" width="1265" height="324"/>
+      <xy x="385" y="246" width="1320" height="324"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="af1a7" binding="NorthP" layout-manager="GridLayoutManager" row-count="2" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="af1a7" binding="NorthP" layout-manager="GridLayoutManager" row-count="2" column-count="23" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="North"/>
         <properties/>
@@ -45,42 +45,6 @@
               <text value="Check Package"/>
             </properties>
           </component>
-          <component id="f11" class="javax.swing.JLabel" binding="Filter">
-            <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Filter"/>
-            </properties>
-          </component>
-          <component id="cbe34" class="javax.swing.JComboBox" binding="FilterC">
-            <constraints>
-              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="740f0" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
-            <constraints>
-              <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="2f4f3" class="javax.swing.JButton" binding="SumB">
-            <constraints>
-              <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="SumPrice"/>
-            </properties>
-          </component>
-          <component id="f2c7f" class="javax.swing.JLabel" binding="GroupL">
-            <constraints>
-              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Group by"/>
-            </properties>
-          </component>
           <component id="9a285" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -97,28 +61,52 @@
             </constraints>
             <properties/>
           </component>
-          <component id="e6cb9" class="javax.swing.JButton" binding="DeleteB">
+          <component id="8da82" class="javax.swing.JButton" binding="maxPriceButton" default-binding="true">
             <constraints>
-              <grid row="0" column="7" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Delete Order"/>
+              <text value="Max Price"/>
+            </properties>
+          </component>
+          <component id="5de92" class="javax.swing.JButton" binding="AddB">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Add Order"/>
+            </properties>
+          </component>
+          <component id="2f4f3" class="javax.swing.JButton" binding="SumB">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="SumPrice"/>
             </properties>
           </component>
           <component id="6106a" class="javax.swing.JButton" binding="UpdateB">
             <constraints>
-              <grid row="0" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Update Order"/>
             </properties>
           </component>
-          <component id="5de92" class="javax.swing.JButton" binding="AddB">
+          <component id="e6cb9" class="javax.swing.JButton" binding="DeleteB">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Add Order"/>
+              <text value="Delete Order"/>
+            </properties>
+          </component>
+          <component id="82252" class="javax.swing.JButton" binding="returnToLogInButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Return to Log in"/>
             </properties>
           </component>
         </children>
