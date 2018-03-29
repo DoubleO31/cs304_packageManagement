@@ -5,7 +5,7 @@ import java.util.*;
 
 public class CreateOrder {
     private Connection con;
-    private long CustomerID = 21363537;
+    private long CustomerID = 21367537;
 
 
     public CreateOrder(){
@@ -43,7 +43,7 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,0);
+            ps.setLong(3,94237);
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
@@ -52,7 +52,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setDate(11,o.getDateCreated());
+            ps.setNull(11, Types.DATE);
 
             ps.executeUpdate();
 
