@@ -66,7 +66,7 @@ primary key (typename)
 create table orders(
 orderID		NUMBER not null,
 customerID		int not null,
-companyID		int,
+companyID		int not null,
 typename		CHAR(30) not null,
 senderName		VARCHAR(50) not null,
 senderAddress	VARCHAR(50) not null,
@@ -74,7 +74,7 @@ receiverAddress	VARCHAR(50) not null,
 receiverName		VARCHAR(50) not null,       
 price			NUMBER not null,
 dateCreated		DATE not null,
-expectedArrival	DATE,	
+expectedArrival	DATE not null,	
 primary key (orderID),
 foreign key (companyID) REFERENCES deliveryCompany
 ON DELETE CASCADE,

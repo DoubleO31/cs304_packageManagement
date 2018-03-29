@@ -28,10 +28,17 @@ public class MainGUI {
     private JTable table1;
     private JScrollPane SouthS;
     private JTextField Package;
+    private int row = -1;
     CreateOrder temp = new CreateOrder();
 
 
     public MainGUI() {
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                row = table1.rowAtPoint(e.getPoint());
+            }
+        });
         AddB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +78,30 @@ public class MainGUI {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                     System.out.println("Message:?? " + ex.getMessage());
                 }
+            }
+        });
+        DeleteB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    if(row != -1){
+                        long orderID = (long)table1.getModel().getValueAt(row,0);
+                        try {
+                            temp.deleteOrder(orderID);
+                            List<Order> orderslist;
+
+                            orderslist = MainGUI.this.temp.getAllOrders();
+
+                            OrderTableModel model = new OrderTableModel(orderslist);
+
+                            table1.setModel(model);
+
+
+                        }catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, ex.getMessage());
+                            System.out.println("Message:?? " + ex.getMessage());
+                        }
+                    }
+                    row = -1;
             }
         });
     }

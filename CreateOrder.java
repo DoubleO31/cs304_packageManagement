@@ -1,4 +1,7 @@
-//package cs304_packageManagement;
+
+
+
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,6 +10,7 @@ import java.util.*;
 
 public class CreateOrder {
     private Connection con;
+    private long CustomerID = 21363537;
 
 
     public CreateOrder(){
@@ -26,7 +30,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_t5g1b","a83751157");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -43,9 +47,9 @@ public class CreateOrder {
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
-            ps.setLong(2, customerID);
-            ps.setNull(3,java.sql.Types.INTEGER);
-            ps.setNull(4, Types.CHAR);
+            ps.setLong(2,CustomerID);
+            ps.setLong(3,0);
+            ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
 
@@ -53,7 +57,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11,o.getDateCreated());
 
             ps.executeUpdate();
 
@@ -289,30 +293,19 @@ public class CreateOrder {
         }
     }
 
-    public void deleteFinishedOrder(FinishedOrder o) {
-        PreparedStatement ps;
+    public void deleteOrder(long orderId) throws SQLException{
+        PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("DELETE FROM Orders WHERE orderID = ?");
-            ps.setLong(1,o.getOrderid());
+            ps = con.prepareStatement("DELETE FROM orders WHERE orderID = ?");
+            ps.setLong(1, orderId);
 
             ps.executeUpdate();
             con.commit();
             ps.close();
-            ps = con.prepareStatement("DELETE FROM FinishedOrders WHERE orderID = ?");
-            ps.setLong(1,o.getOrderid());
-
-            ps.executeUpdate();
-            con.commit();
+        }
+        finally {
+            assert ps != null;
             ps.close();
-        }catch (SQLException ex) {
-            System.out.println("Message: " + ex.getMessage());
-            try {
-                // undo the insert
-                con.rollback();
-            } catch (SQLException ex2) {
-                System.out.println("Message: " + ex2.getMessage());
-                System.exit(-1);
-            }
         }
     }
 
