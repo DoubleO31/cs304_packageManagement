@@ -148,6 +148,20 @@ public class MainGUI extends JFrame {
 
             }
         });
+        maxPriceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    try{
+                        String s = temp.groupBy(custID);
+                        if (s != ""){
+                            JOptionPane.showMessageDialog(null, s);
+                        }
+                    }catch (Exception ex){
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                        System.out.println("Message:?? " + ex.getMessage());
+                    }
+            }
+        });
         returnToLogInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
