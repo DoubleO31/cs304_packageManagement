@@ -20,7 +20,7 @@ public class CustomerAddUI {
     private JPanel EastP;
     private JPanel WestP;
     private JPanel MainP;
-    String[] DeliveryType = {"Bird", "Cat", "Dog", "Rabbit", "Pig"};
+    String[] DeliveryType = {"Regular", "Fast", "Express", "International Express"};
 
     public CustomerAddUI() {
         updateButton.addActionListener(new ActionListener() {
@@ -35,12 +35,9 @@ public class CustomerAddUI {
                     Date tempdate = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
 
-                    Order temporder = new Order(Long.toString(MainGUI.generateRandom(12)), tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, null);
+                    Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(), tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, null);
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
-                    List<Order> orderslist;
-                    orderslist = temp.getAllOrders();
-                    OrderTableModel model = new OrderTableModel(orderslist);
 
 
                 } catch (Exception ex) {
@@ -52,6 +49,7 @@ public class CustomerAddUI {
         DelT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });
@@ -82,7 +80,7 @@ public class CustomerAddUI {
     private void $$$setupUI$$$() {
         MainP = new JPanel();
         MainP.setLayout(new GridLayoutManager(2, 3, new Insets(0, 0, 0, 0), -1, -1));
-        MainP.setToolTipText("A");
+        MainP.setToolTipText("");
         EastP = new JPanel();
         EastP.setLayout(new GridLayoutManager(6, 1, new Insets(0, 0, 0, 0), -1, -1));
         MainP.add(EastP, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -98,8 +96,12 @@ public class CustomerAddUI {
         EastP.add(price, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         DelT = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("Regular");
+        defaultComboBoxModel1.addElement("Fast");
+        defaultComboBoxModel1.addElement("Express");
+        defaultComboBoxModel1.addElement("International Express");
         DelT.setModel(defaultComboBoxModel1);
-        DelT.setToolTipText("1,2,3,4");
+        DelT.setToolTipText("");
         EastP.add(DelT, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         MainP.add(spacer1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
