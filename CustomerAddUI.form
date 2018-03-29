@@ -67,7 +67,7 @@
                 <item value="Regular"/>
                 <item value="Fast"/>
                 <item value="Express"/>
-                <item value="International Express"/>
+                <item value="Internation Express"/>
               </model>
               <toolTipText value=""/>
             </properties>
