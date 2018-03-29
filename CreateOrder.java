@@ -25,7 +25,7 @@ public class CreateOrder {
 
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_w7d1b","a28059146");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug","ora_a6o0b","a41533143");
 
             System.out.println("\nConnected to Oracle!");
         }
@@ -337,14 +337,14 @@ public class CreateOrder {
     }
 
     // view orders only under specific customerID
-   public List<Order> viewOrder(int customerID) throws Exception{
+   public List<Order> viewOrder(long customerID) throws Exception{
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs;
 
         try {
             stmt = con.prepareStatement("SELECT * FROM orders WHERE CUSTOMERID = ?");
-            stmt.setInt(1,customerID);
+            stmt.setLong(1,customerID);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Order tempOrder = getOrder(rs);

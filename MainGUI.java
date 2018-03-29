@@ -72,7 +72,7 @@ public class MainGUI extends JFrame {
 
                     } else {
 
-                        orderslist = MainGUI.this.temp.getAllOrders();
+                        orderslist = MainGUI.this.temp.viewOrder(custID);
                     }
                     OrderTableModel model = new OrderTableModel(orderslist);
 
@@ -161,8 +161,7 @@ public class MainGUI extends JFrame {
                     MainGUI frame = new MainGUI();
                     if (args.length == 1) {
                         frame.custID = Long.parseLong(args[0]);
-                    }
-                    else
+                    } else
                         frame.custID = 21367537;
                     frame.setVisible(true);
                 } catch (Exception e) {

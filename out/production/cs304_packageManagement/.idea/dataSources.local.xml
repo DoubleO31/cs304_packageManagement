@@ -8,7 +8,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>ora_w7d1b</user-name>
+      <user-name>ora_a6o0b</user-name>
       <introspection-schemas>*:ORA_A6O0B</introspection-schemas>
     </data-source>
   </component>
