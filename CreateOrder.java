@@ -1,8 +1,3 @@
-
-
-
-
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.*;
@@ -48,7 +43,7 @@ public class CreateOrder {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
             ps.setLong(2,CustomerID);
-            ps.setLong(3,0);
+            ps.setLong(3,94237);
             ps.setString(4,o.getType());
             ps.setString(5,o.getSenderName());
             ps.setString(6,o.getSenderAddress());
@@ -57,7 +52,7 @@ public class CreateOrder {
             ps.setString(8,o.getReceiverName());
             ps.setDouble(9,o.getPrice());
             ps.setDate(10,o.getDateCreated());
-            ps.setNull(11, Types.DATE);
+            ps.setDate(11, o.getExpectedArrival());
 
             ps.executeUpdate();
 
@@ -110,7 +105,7 @@ public class CreateOrder {
             ps.setString(2,o.getLocation());
             ps.setString(3,o.getStatus());
 
-            ps.setLong(4,o.getCompanyID());
+            ps.setLong(4,94237);
             ps.setDate(5,o.getDateUpdated());
             ps.setString(6,o.getInstance());
 
@@ -442,7 +437,3 @@ public class CreateOrder {
         CreateOrder c = new CreateOrder();
     }
 }
-
-
-
-

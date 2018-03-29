@@ -3,6 +3,7 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -39,10 +40,12 @@ public class CustomerAddUI {
 
                     Order temporder = new Order(MainGUI.generateRandom(8), 0, 0, (String) DelT.getSelectedItem(),
                             tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD);
-
+                    ExistingOrder eOrder = new ExistingOrder(temporder.getOrderid(),0,0,(String) DelT.getSelectedItem(),
+                            tempSenA, tempSenN, tempRecA, tempRecN, Float.valueOf(tempprice), sqlDate, arrD,"Vancouver",
+                            "Committed",sqlDate,"new Order");
                     CreateOrder temp = new CreateOrder();
                     temp.addOrder(temporder);
-
+                    temp.addEOrder(eOrder);
 
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
