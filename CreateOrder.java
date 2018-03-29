@@ -43,7 +43,7 @@ public class CreateOrder {
         try {
             ps = con.prepareStatement("INSERT INTO ORDERS VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setLong(1,o.getOrderid());
-            ps.setLong(2,o.getCustID());
+            ps.setLong(2, customerID);
             ps.setNull(3,java.sql.Types.INTEGER);
             ps.setNull(4, Types.CHAR);
             ps.setString(5,o.getSenderName());
