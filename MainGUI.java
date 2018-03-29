@@ -67,12 +67,12 @@ public class MainGUI extends JFrame {
 
                     if (oId != null && oId.trim().length() > 0) {
 
-                        orderslist = MainGUI.this.temp.selectOrder(oId.trim());
+                        orderslist = MainGUI.this.temp.selectOrder(oId.trim(), Long.toString(custID));
 
 
                     } else {
 
-                        orderslist = MainGUI.this.temp.getAllOrders();
+                        orderslist = MainGUI.this.temp.getAllOrders(Long.toString(custID));
                     }
                     OrderTableModel model = new OrderTableModel(orderslist);
 
@@ -161,8 +161,7 @@ public class MainGUI extends JFrame {
                     MainGUI frame = new MainGUI();
                     if (args.length == 1) {
                         frame.custID = Long.parseLong(args[0]);
-                    }
-                    else
+                    } else
                         frame.custID = 21367537;
                     frame.setVisible(true);
                 } catch (Exception e) {

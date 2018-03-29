@@ -434,6 +434,57 @@ public class CreateOrder {
         }
     }
 
+    //return a list of all orders given an customer id(all column)
+    public List<Order> getAllOrders(String id) throws Exception {
+        List<Order> orderslist = new ArrayList<>();
+
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        try {
+            stmt = con.prepareStatement("select * from ORDERS WHERE CUSTOMERID = ?");
+            stmt.setString(1,id);
+            rs = stmt.executeQuery();
+
+
+
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    public List<Order> selectOrder(String oID, String id) throws Exception {
+
+        List<Order> orderslist = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("select * from ORDERS WHERE ORDERID = ? AND CUSTOMERID = ?");
+            stmt.setString(1,oID);
+            stmt.setString(2,id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Order tempOrder = getOrder(rs);
+                orderslist.add(tempOrder);
+            }
+
+            return orderslist;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
     //helper function that return a single column for getAllOrders
     private static Order getOrder(ResultSet rs) throws SQLException {
         Long orderid =Long.parseLong(rs.getString("ORDERID")) ;
