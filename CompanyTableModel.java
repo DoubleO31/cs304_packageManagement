@@ -9,10 +9,10 @@ public class CompanyTableModel extends AbstractTableModel{
     private static final int addressCol = 3;
 
     private String[] column = {"Company ID","Company Name", "Branch Number", "Company Branch Address"};
-    private List<Company>  comps;
-    private Map<Long,CompanyAddress> addrs;
+    private Map<Long,Company> comps;
+    private List<CompanyAddress> addrs;
 
-    public CompanyTableModel(List<Company> c, Map<Long,CompanyAddress> a) {
+    public CompanyTableModel(Map<Long,Company> c, List<CompanyAddress> a) {
         comps = c;
         addrs = a;
     }
@@ -33,11 +33,12 @@ public class CompanyTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Company comp = comps.get(columnIndex);
-        CompanyAddress addr = addrs.get(comp.getCompID());
+
+        CompanyAddress addr = addrs.get(columnIndex);
+        Company comp = comps.get(addr.getCompID());
         switch (columnIndex) {
             case companyIDCol:
-                return comp.getCompID();
+                return addr.getCompID();
             case companyNameCol:
                 return comp.getCname();
             case branchCol:
