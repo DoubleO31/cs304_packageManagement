@@ -67,6 +67,28 @@ public class EmployeeGUI extends JFrame {
                 }
             }
         }));
+        
+        sumPriceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    String select = gGroupbybox.getSelectedItem().toString();
+                    if (select == "Delivery Company"){
+                        select = "companyID";
+                    }else if (select == "Customer ID"){
+                        select = "customerID";
+                    }
+                    System.out.println(select);
+                    String s = temp.groupBySum(select);
+                    if (s != ""){
+                        JOptionPane.showMessageDialog(null, s);
+                    }
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
