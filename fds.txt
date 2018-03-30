@@ -1,0 +1,25 @@
+List of Applicable Functional Dependencies
+
+
+orders table
+
+-PrimaryKey = orderID
+
+-FD:	
+	orderID -> customerID, companyID, senderName, senderAddress, receiverName, receiverAddress, price, dateCreated, expectedArrival
+
+	-Given an orderID you can find rest of the information regarding the Order
+
+
+packageContained table
+
+-PrimaryKey = orderID (foreign key)
+
+-FD:
+	orderID -> packageNo, description, weight
+
+	- given an orderID you can get all the information of the package it contains
+
+
+
+

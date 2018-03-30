@@ -14,6 +14,7 @@ public class DeliveryCompGUI extends JFrame {
     private JButton showAllDataButton;
     private JPanel SouthP;
     private JTable table1;
+    private JButton backToLoginButton;
     private Long CompID;
     protected CreateOrder temp = new CreateOrder();
 
@@ -43,6 +44,13 @@ public class DeliveryCompGUI extends JFrame {
                     System.out.println("Message:?? " + ex.getMessage());
                 }
 
+            }
+        });
+        backToLoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginGUI.main(null);
+                dispose();
             }
         });
     }
@@ -80,11 +88,15 @@ public class DeliveryCompGUI extends JFrame {
         MainP = new JPanel();
         MainP.setLayout(new GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
         NorthP = new JPanel();
-        NorthP.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+
+        NorthP.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         MainP.add(NorthP, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         showAllDataButton = new JButton();
         showAllDataButton.setText("Show all data");
         NorthP.add(showAllDataButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        backToLoginButton = new JButton();
+        backToLoginButton.setText("Back to Login");
+        NorthP.add(backToLoginButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         MainP.add(spacer1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         SouthP = new JPanel();

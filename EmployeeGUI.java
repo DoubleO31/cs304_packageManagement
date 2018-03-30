@@ -19,6 +19,7 @@ public class EmployeeGUI extends JFrame {
     private JPanel SouthP;
     private JComboBox comboBox1;
     private JButton sumPriceButton;
+    private JButton backToLoginButton;
     protected CreateOrder temp = new CreateOrder();
     protected Employee func = new Employee();
 
@@ -90,6 +91,13 @@ public class EmployeeGUI extends JFrame {
                 }
             }
         });
+        backToLoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginGUI.main(null);
+                dispose();
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -124,7 +132,7 @@ public class EmployeeGUI extends JFrame {
         MainP = new JPanel();
         MainP.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         NorthP = new JPanel();
-        NorthP.setLayout(new GridLayoutManager(2, 6, new Insets(0, 0, 0, 0), -1, -1));
+        NorthP.setLayout(new GridLayoutManager(2, 7, new Insets(0, 0, 0, 0), -1, -1));
         MainP.add(NorthP, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         divisionButton = new JButton();
         divisionButton.setText("Division");
@@ -149,6 +157,9 @@ public class EmployeeGUI extends JFrame {
         sumPriceButton = new JButton();
         sumPriceButton.setText("Sum price");
         NorthP.add(sumPriceButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        backToLoginButton = new JButton();
+        backToLoginButton.setText("Back to Login");
+        NorthP.add(backToLoginButton, new GridConstraints(0, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         SouthP = new JPanel();
         SouthP.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         MainP.add(SouthP, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

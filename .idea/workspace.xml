@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70ae5a3a-e8fc-4423-80c8-0cf60756c910" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CreateOrder.java" afterPath="$PROJECT_DIR$/CreateOrder.java" />
-      <change beforePath="$PROJECT_DIR$/CustomerAddUI.java" afterPath="$PROJECT_DIR$/CustomerAddUI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/SQLQueries.pdf" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/DeliveryCompGUI.form" afterPath="$PROJECT_DIR$/DeliveryCompGUI.form" />
       <change beforePath="$PROJECT_DIR$/DeliveryCompGUI.java" afterPath="$PROJECT_DIR$/DeliveryCompGUI.java" />
-      <change beforePath="$PROJECT_DIR$/Employee.java" afterPath="$PROJECT_DIR$/Employee.java" />
+      <change beforePath="$PROJECT_DIR$/EmployeeGUI.form" afterPath="$PROJECT_DIR$/EmployeeGUI.form" />
+      <change beforePath="$PROJECT_DIR$/EmployeeGUI.java" afterPath="$PROJECT_DIR$/EmployeeGUI.java" />
       <change beforePath="$PROJECT_DIR$/MainGUI.java" afterPath="$PROJECT_DIR$/MainGUI.java" />
-      <change beforePath="$PROJECT_DIR$/description.txt" afterPath="$PROJECT_DIR$/description.txt" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI$1.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI$2.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/DeliveryCompGUI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$1.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$2.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$3.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$4.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$5.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/EmployeeGUI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs304_packageManagement/MainGUI$5.class" afterPath="$PROJECT_DIR$/out/production/cs304_packageManagement/MainGUI$5.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,21 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CustomerAddUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomerAddUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="170" column="206" lean-forward="false" selection-start-line="170" selection-start-column="206" selection-end-line="170" selection-end-column="206" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CreateOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CreateOrder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="736">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#19353#19354#0" expanded="true" />
                 <element signature="e#19402#19403#0" expanded="true" />
@@ -105,23 +106,33 @@
         <entry file="file://$PROJECT_DIR$/MainGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
-              <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+              <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
               <folding>
                 <element signature="e#1149#1323#0" expanded="true" />
                 <element signature="e#1322#1323#0" expanded="true" />
                 <element signature="initializer##0;class#MainGUI#0" expanded="true" />
-                <element signature="e#11997#11998#0" expanded="true" />
-                <element signature="e#12026#12027#0" expanded="true" />
+                <element signature="e#12018#12019#0" expanded="true" />
+                <element signature="e#12047#12048#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmployeeGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EmployeeGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="47" column="82" lean-forward="false" selection-start-line="47" selection-start-column="82" selection-end-line="47" selection-end-column="82" />
+            <state relative-caret-position="223">
+              <caret line="49" column="87" lean-forward="false" selection-start-line="49" selection-start-column="87" selection-end-line="49" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeliveryCompGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeliveryCompGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="97" column="51" lean-forward="false" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -130,8 +141,8 @@
       <file leaf-file-name="LoginGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LoginGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1978">
-              <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+            <state relative-caret-position="368">
+              <caret line="124" column="37" lean-forward="true" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -166,11 +177,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.sql" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            <state relative-caret-position="1357">
+              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -227,7 +238,6 @@
         <option value="$PROJECT_DIR$/EmployeeGUI.form" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/LoginGUI.java" />
-        <option value="$PROJECT_DIR$/DeliveryCompGUI.java" />
         <option value="$PROJECT_DIR$/DeliveryCompGUI.form" />
         <option value="$PROJECT_DIR$/CustomerAddUI.form" />
         <option value="$PROJECT_DIR$/cs304_packageManagement.iml" />
@@ -235,6 +245,7 @@
         <option value="$PROJECT_DIR$/CreateOrder.java" />
         <option value="$PROJECT_DIR$/Employee.java" />
         <option value="$PROJECT_DIR$/description.txt" />
+        <option value="$PROJECT_DIR$/DeliveryCompGUI.java" />
       </list>
     </option>
   </component>
@@ -305,7 +316,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainGUI">
+  <component name="RunManager" selected="Application.EmployeeGUI">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -316,6 +327,20 @@
     <configuration name="CustomerAddUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="CustomerAddUI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="cs304_packageManagement" />
+      <envs />
+    </configuration>
+    <configuration name="DeliveryCompGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="DeliveryCompGUI" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -443,18 +468,20 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.MainGUI" />
       <item index="1" class="java.lang.String" itemvalue="Application.CustomerAddUI" />
       <item index="2" class="java.lang.String" itemvalue="Application.LoginGUI" />
       <item index="3" class="java.lang.String" itemvalue="Application.EmployeeGUI" />
+      <item index="4" class="java.lang.String" itemvalue="Application.DeliveryCompGUI" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainGUI" />
-        <item index="1" class="java.lang.String" itemvalue="Application.EmployeeGUI" />
-        <item index="2" class="java.lang.String" itemvalue="Application.LoginGUI" />
-        <item index="3" class="java.lang.String" itemvalue="Application.CustomerAddUI" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.EmployeeGUI" />
+        <item index="1" class="java.lang.String" itemvalue="Application.DeliveryCompGUI" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MainGUI" />
+        <item index="3" class="java.lang.String" itemvalue="Application.LoginGUI" />
+        <item index="4" class="java.lang.String" itemvalue="Application.CustomerAddUI" />
       </list>
     </recent_temporary>
   </component>
@@ -522,7 +549,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28482000" />
+    <option name="totallyTimeSpent" value="29577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -622,8 +649,8 @@
             <element signature="e#1149#1323#0" expanded="true" />
             <element signature="e#1322#1323#0" expanded="true" />
             <element signature="initializer##0;class#MainGUI#0" expanded="true" />
-            <element signature="e#11997#11998#0" expanded="true" />
-            <element signature="e#12026#12027#0" expanded="true" />
+            <element signature="e#12018#12019#0" expanded="true" />
+            <element signature="e#12047#12048#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -722,8 +749,8 @@
             <element signature="e#1149#1323#0" expanded="true" />
             <element signature="e#1322#1323#0" expanded="true" />
             <element signature="initializer##0;class#MainGUI#0" expanded="true" />
-            <element signature="e#11997#11998#0" expanded="true" />
-            <element signature="e#12026#12027#0" expanded="true" />
+            <element signature="e#12018#12019#0" expanded="true" />
+            <element signature="e#12047#12048#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -822,17 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeliveryCompGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="32" column="75" lean-forward="false" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
-          <folding>
-            <element signature="e#4586#4587#0" expanded="false" />
-            <element signature="e#4614#4615#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeliveryCompGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -880,18 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cs304_packageManagement.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CreateOrder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="e#19353#19354#0" expanded="true" />
             <element signature="e#19402#19403#0" expanded="true" />
@@ -924,41 +932,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LoginGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/description.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="102" lean-forward="false" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding>
-            <element signature="e#1149#1323#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="initializer##0;class#MainGUI#0" expanded="true" />
-            <element signature="e#11997#11998#0" expanded="true" />
-            <element signature="e#12026#12027#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -981,8 +959,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EmployeeGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="47" column="82" lean-forward="false" selection-start-line="47" selection-start-column="82" selection-end-line="47" selection-end-column="82" />
+        <state relative-caret-position="223">
+          <caret line="49" column="87" lean-forward="false" selection-start-line="49" selection-start-column="87" selection-end-line="49" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeliveryCompGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="97" column="51" lean-forward="false" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+          <folding>
+            <element signature="e#1149#1323#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="initializer##0;class#MainGUI#0" expanded="true" />
+            <element signature="e#12018#12019#0" expanded="true" />
+            <element signature="e#12047#12048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cs304_packageManagement.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LoginGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="124" column="37" lean-forward="true" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1357">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
           <folding />
         </state>
       </provider>

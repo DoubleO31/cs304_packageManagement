@@ -97,7 +97,7 @@ public class MainGUI extends JFrame {
                         temp.deleteOrder(orderID);
                         List<Order> orderslist;
 
-                        orderslist = MainGUI.this.temp.getAllOrders();
+                        orderslist = MainGUI.this.temp.getAllOrders(Long.toString(custID));
 
                         OrderTableModel model = new OrderTableModel(orderslist);
 
