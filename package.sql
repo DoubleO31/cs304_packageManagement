@@ -123,9 +123,6 @@ insert into customer
 values(57384360, 'Alan Jiang', '2463 W 10th Ave', 'fdfd@hotmail.com', '7786548967', 'Credit');
 
 insert into customer
-values(34348957, 'Julia Hebb', '3432 Cambie St', 'sdas@gmail.com', '6045998864', 'Cash');
-
-insert into customer
 values(45221778, 'Anna Roger', '955 Thurlow St', 'sdadd@gmail.com', '6047558945', 'Debit');
 
 insert into customer
@@ -188,9 +185,6 @@ insert into manages
 values(57384360, 563742, TO_DATE('12-MAR-2017 14:21','DD-MM-YYYY HH24:MI'), 
        TO_DATE('12-MAR-2017 14:25','DD-MM-YYYY HH24:MI'), 'Lost Password');
 
-insert into manages
-values(34348957, 897643, TO_DATE('10-FEB-2018 15:21','DD-MM-YYYY HH24:MI'), 
-       TO_DATE('10-FEB-2018 15:25','DD-MM-YYYY HH24:MI'), 'Status not updated');
        
 insert into manages
 values(77654321, 765829, TO_DATE('01-MAR-2018 16:21','DD-MM-YYYY HH24:MI'), 
@@ -218,18 +212,22 @@ values(10005647,21367537,94237, 'Regular', 'John Smith', '150 W 15th Ave', '830 
 insert into orders
 values(10302432,57384360,94237, 'Fast', 'Alan Jiang', '2463 W 10th Ave', '2500 University Dr NW, Calgary',
        'University of Calgary Outdoor Centre', 27.88, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('12-FEB-2018','DD-MM-YYYY'));
-     
+
 insert into orders
-values(10206458,21367537,34786, 'Express', 'Amazon', '109 Braid St, New Westminster', '3432 Cambie St',
-       'Julia Hebb', 32.43, TO_DATE('19-FEB-2018','DD-MM-YYYY'),TO_DATE('15-FEB-2018','DD-MM-YYYY'));
-       
-insert into orders
-values(10103320,45221778,98765, 'Regular', 'Anna Roger', '955 Thurlow St', '22165 Dewdney Trunk Rd Maple Ridge',
+values(10103320,45221778,98765, 'Internation Express', 'Anna Roger', '955 Thurlow St', '22165 Dewdney Trunk Rd Maple Ridge',
        'Rick Douglas', 14.33, TO_DATE('01-MAR-2018','DD-MM-YYYY'),TO_DATE('14-FEB-2018','DD-MM-YYYY'));
+
+insert into orders
+values(10103310,45221778,94237, 'Regular', 'Anna Roge', '955 Thurlow S', '22165 Dewdney Trunk Rd Maple Ride',
+                'Rick Dougla', 14.99, TO_DATE('01-MAR-2017','DD-MM-YYYY'),TO_DATE('14-FEB-2017','DD-MM-YYYY'));
     
 insert into orders
 values(10115643,77654321,34322, 'Internation Express', 'David Johonson', '1855 Nelson St', '4730 University Way NE Seattle',
        'Maria Johonson', 50.8, TO_DATE('21-FEB-2018','DD-MM-YYYY'),TO_DATE('13-FEB-2018','DD-MM-YYYY'));
+
+insert into orders
+values(10115630,77654321,94237, 'Regular', 'David Johonso', '1855 Nelson S', '4730 University Way NE Seattl',
+                'Maria Johonso', 50, TO_DATE('21-FEB-2017','DD-MM-YYYY'),TO_DATE('13-FEB-2017','DD-MM-YYYY'));
 
 insert into existingOrders
 values(10005647, 'Vancouver', 'Clearing Custom', 94237, TO_DATE('26-FEB-2018','DD-MM-YYYY'), 'daily update');
@@ -237,11 +235,15 @@ values(10005647, 'Vancouver', 'Clearing Custom', 94237, TO_DATE('26-FEB-2018','D
 insert into existingOrders
 values(10302432, 'Richmond', 'Clearing Custom', 94237, TO_DATE('17-FEB-2018','DD-MM-YYYY'), 'custom clear');
 
-insert into existingOrders
-values(10206458, 'Whiterock', 'Clearing Custom', 34786, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'package loss');
 
 insert into finishedOrders
 values(10103320, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
+
+insert into finishedOrders
+values(10115630, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
+
+insert into finishedOrders
+values(10302432, TO_DATE('03-MAR-2018','DD-MM-YYYY'), 'Delivered');
 
 insert into finishedOrders
 values(10115643, TO_DATE('20-FEB-2018','DD-MM-YYYY'), 'Customer return');
@@ -252,8 +254,6 @@ values(10005647, 43456, 'Personal', 1.2);
 insert into packageContained
 values(10302432, 53345, 'Computer', 2.1);
 
-insert into packageContained
-values(10206458, 12165, 'From amazon', 1.5);
 
 insert into packageContained
 values(10103320, 77653, 'Fragile', 3);

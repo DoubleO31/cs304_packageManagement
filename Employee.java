@@ -19,7 +19,7 @@ public class Employee {
         }
 
         try {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug", "ora_t5g1b", "a83751157");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@dbhost.ugrad.cs.ubc.ca:1522:ug", "ora_w7d1b", "a28059146");
 
             System.out.println("\nConnected to Oracle!");
         } catch (SQLException ex) {

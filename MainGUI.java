@@ -151,15 +151,15 @@ public class MainGUI extends JFrame {
         maxPriceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    try{
-                        String s = temp.groupBy(custID);
-                        if (s != ""){
-                            JOptionPane.showMessageDialog(null, s);
-                        }
-                    }catch (Exception ex){
-                        JOptionPane.showMessageDialog(null, ex.getMessage());
-                        System.out.println("Message:?? " + ex.getMessage());
+                try {
+                    String s = temp.groupBy(custID);
+                    if (s != "") {
+                        JOptionPane.showMessageDialog(null, s);
                     }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
             }
         });
         returnToLogInButton.addActionListener(new ActionListener() {
@@ -250,13 +250,13 @@ public class MainGUI extends JFrame {
         Package = new JTextField();
         NorthP.add(Package, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 1, false));
         maxPriceButton = new JButton();
-        maxPriceButton.setText("Max Price");
+        maxPriceButton.setText("Delivery Company with most expensive goods");
         NorthP.add(maxPriceButton, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         AddB = new JButton();
         AddB.setText("Add Order");
         NorthP.add(AddB, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         SumB = new JButton();
-        SumB.setText("SumPrice");
+        SumB.setText("Total value of goods");
         NorthP.add(SumB, new com.intellij.uiDesigner.core.GridConstraints(1, 4, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         UpdateB = new JButton();
         UpdateB.setText("Update Order");
