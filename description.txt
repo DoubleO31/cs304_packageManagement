@@ -10,6 +10,7 @@ change from original schema
 We don't have time to implement a few functions we want in the specification, and we added or changed many functions to fulfill the requirement
 of demo. So the schema is slightly different from our original design. Such like the employee cannot modify the orders and an existing order has
 no way to change to a finished one. There is no separate Manages class to view or change the Manages entity in our implementation since it's not
-necessary to exist as currently employee cannot modify anything. And some functions of customer service entity are implemented in employee class in our Java files. But the customer service entities
-in database are immutable. But we don't provide service to change customer information as designed in Customer service. This also due to time
-limited. The customer part is almost identical to our initial plan. And we add more functions like sum and calculate average cost.
+necessary to exist as currenly employee cannot modify anything. And some functions of customer service entity are implemented in employee class 
+in our Java files. And the customer service entities in database are immutable. But we don't provide service to change customer infomation as 
+designed in Customer service. This is also due to time limits. The customer part is almost identical to our initial plan. And we add more fuctions
+like sum and calculate average cost.
