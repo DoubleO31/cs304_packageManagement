@@ -34,7 +34,7 @@ public class CompanyTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
 
-        CompanyAddress addr = addrs.get(columnIndex);
+        CompanyAddress addr = addrs.get(rowIndex);
         Company comp = comps.get(addr.getCompID());
         switch (columnIndex) {
             case companyIDCol:

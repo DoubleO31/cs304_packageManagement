@@ -1,0 +1,15 @@
+Description: 
+What we did is a delivery management system. There are three GUI interfaces. The customer interface allow customer to view and search their own orders,
+add new orders and update some fields of existing orders. Finished orders cannot be updated but can be deleted. Customer could also see packages 
+linked to each order. Users cannot delete an order with a package.
+Employee interface could see all orders and find out companies which serving all customers. It also allowed to find max priced order and sum
+all prices.
+Company interface allows each company to view their orders.
+
+change from original schema
+We don't have time to implement a few functions we want in the specification, and we added or changed many functions to fulfill the requirement
+of demo. So the schema is slightly different from our original design. Such like the employee cannot modify the orders and an existing order has
+no way to change to a finished one. There is no separate Manages class to view or change the Manages entity in our implementation since it's not
+necessary to exist as currenly employee cannot modify anything. And some functions of customer service entity are implemented in employee class in our Java files. But the customer service entities
+in database are immutable. But we don't provide service to change customer infomation as designed in Customer service. This also due to time
+limited. The customer part is almost identical to our initial plan. And we add more fuctions like sum and calculate average cost.
