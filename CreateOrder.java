@@ -328,7 +328,7 @@ public class CreateOrder {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 s += "Company ID: " + rs.getString("companyid") + " ";
-                s += "Average Price: " + rs.getString("avgprice") + "\r\n";
+                s += "Average Price: " + String.format("%.2f", Float.parseFloat(rs.getString("avgprice"))) + "\r\n";
             }
 
             return s;
