@@ -19,7 +19,9 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+
           <root url="jar://$MODULE_DIR$/../../classes12.zip!/" />
+
         </CLASSES>
         <JAVADOC />
         <SOURCES />
