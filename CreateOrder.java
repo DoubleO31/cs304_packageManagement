@@ -383,7 +383,6 @@ public class CreateOrder {
             stmt.close();
             }
     }
-
     public void deleteOrder(long orderId) throws SQLException{
         PreparedStatement ps = null;
         try {
