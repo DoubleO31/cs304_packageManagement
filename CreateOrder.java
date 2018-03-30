@@ -287,27 +287,6 @@ public class CreateOrder {
         }
     }
 
-    public  List<Order> beyondAvg() throws Exception {
-        List<Order> orderslist = new ArrayList<>();
-        PreparedStatement stmt = null;
-        ResultSet rs;
-
-        try {
-            stmt = con.prepareStatement("SELECT * FROM orders WHERE price > (SELECT AVG(o2.price) FROM orders o2)");
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                Order tempOrder = getOrder(rs);
-                orderslist.add(tempOrder);
-            }
-
-            return orderslist;
-        }
-        finally {
-            assert stmt != null;
-            stmt.close();
-        }
-    }
-    
     public  String groupBy(long custID) throws Exception {
         String s = "";
         List<Order> orderslist = new ArrayList<>();
@@ -338,8 +317,34 @@ public class CreateOrder {
             stmt.close();
         }
     }
-    
-// sum of price for each customerID
+
+    public  String groupBySum(String select) throws Exception {
+        String s = "";
+        PreparedStatement stmt = null;
+        ResultSet rs;
+
+        try {
+            stmt = con.prepareStatement("select " + select +", SUM(price) as priceSum from orders group by " + select);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                if (select == "companyID") {
+                    s += "Delivery Company: " + rs.getString(select) + " ";
+                }
+                else if(select == "customerID") {
+                    s += "Customer ID: " + rs.getString(select) + " ";
+                }
+                s += "Total Price: " + String.format("%.2f", Float.parseFloat(rs.getString("priceSum"))) + "\r\n";
+            }
+
+            return s;
+        }
+        finally {
+            assert stmt != null;
+            stmt.close();
+        }
+    }
+
+    // sum of price for each customerID
     public float sumOfPrice(long customerID) throws Exception{
         PreparedStatement stmt = null;
         ResultSet rs;
@@ -362,7 +367,7 @@ public class CreateOrder {
     }
 
     // view orders of specific companyID
-   public List<Order> viewOrder(long companyID) throws Exception{
+    public List<Order> viewOrder(long companyID) throws Exception{
         List<Order> orderslist = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs;
@@ -374,14 +379,14 @@ public class CreateOrder {
             while (rs.next()) {
                 Order tempOrder = getOrder(rs);
                 orderslist.add(tempOrder);
-                }
-
-                return orderslist;
             }
-            finally {
+
+            return orderslist;
+        }
+        finally {
             assert stmt != null;
             stmt.close();
-            }
+        }
     }
 
     public void deleteOrder(long orderId) throws SQLException{

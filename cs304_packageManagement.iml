@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/forms_rt.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/classes12.zip!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/classes12.zip!/" />
+          <root url="jar://$MODULE_DIR$/../PackageManager/forms_rt.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
