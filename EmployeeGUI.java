@@ -54,6 +54,20 @@ public class EmployeeGUI extends JFrame {
                 }
             }
         }));
+        maxPriceButton.addActionListener((new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String s = func.maxPrice();
+                    if (s != ""){
+                        JOptionPane.showMessageDialog(null, s);
+                    }
+                }catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    System.out.println("Message:?? " + ex.getMessage());
+                }
+            }
+        }));
     }
 
     public static void main(String[] args) {
